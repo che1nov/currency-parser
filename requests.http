@@ -1,0 +1,35 @@
+### Статус автоматического/ручного сбора
+GET http://localhost:8080/api/status
+
+### Курсы за сегодня
+GET http://localhost:8080/answer
+
+### Ручной сбор за сегодня
+POST http://localhost:8080/api/collect
+Content-Type: application/json
+
+{}
+
+### Сбор исторической даты
+POST http://localhost:8080/api/collect
+Content-Type: application/json
+
+{
+  "sourceUrl": "https://www.cbr.ru/currency_base/daily/",
+  "date": "2024-03-05"
+}
+
+### Конкретная валюта на дату
+GET http://localhost:8080/answer?date=2024-03-05&currency=USD
+
+### Сортировка по убыванию курса
+GET http://localhost:8080/answer?date=2024-03-05&sort=rate&direction=desc
+
+### Сортировка по изменению в процентах
+GET http://localhost:8080/answer?date=2024-03-05&sort=changePercent&direction=asc
+
+### Поддерживаемые валюты
+GET http://localhost:8080/api/currencies
+
+### Ошибка: неподдерживаемая валюта
+GET http://localhost:8080/answer?currency=BTC
