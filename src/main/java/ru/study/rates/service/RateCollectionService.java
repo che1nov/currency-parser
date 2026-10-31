@@ -1,5 +1,6 @@
 package ru.study.rates.service;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.Clock;
@@ -19,6 +20,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
 import ru.study.rates.adapter.CbrClient;
+import ru.study.rates.adapter.CollectionJournal;
+import ru.study.rates.adapter.FileRateStore;
 import ru.study.rates.adapter.SourceException;
 import ru.study.rates.model.Currency;
 import ru.study.rates.model.CurrencyRate;
@@ -33,17 +36,21 @@ public class RateCollectionService {
     private final ExecutorService executor;
     private final TransactionTemplate transaction;
     private final Clock clock;
+    private final FileRateStore fileStore;
+    private final CollectionJournal journal;
     private final ReentrantLock collectionLock = new ReentrantLock();
     private final AtomicReference<CollectionStatus> status = new AtomicReference<>(
-            new CollectionStatus("IDLE", null, null, null, null, 0, null));
+            new CollectionStatus("IDLE", null, null, null, null, 0, null, null));
 
     public RateCollectionService(CbrClient client, RateRepository repository, ExecutorService collectorExecutor,
-                                 TransactionTemplate transaction, Clock clock) {
+                                 TransactionTemplate transaction, Clock clock, FileRateStore fileStore, CollectionJournal journal) {
         this.client = client;
         this.repository = repository;
         this.executor = collectorExecutor;
         this.transaction = transaction;
         this.clock = clock;
+        this.fileStore = fileStore;
+        this.journal = journal;
     }
 
     public List<CurrencyRate> collect(LocalDate date, String sourceUrl) {
@@ -54,10 +61,11 @@ public class RateCollectionService {
         }
         var startedAt = clock.instant();
         var lastSuccess = status.get().lastSuccessAt();
-        status.set(new CollectionStatus("RUNNING", date, startedAt, null, lastSuccess, 0, null));
+        status.set(new CollectionStatus("RUNNING", date, startedAt, null, lastSuccess, 0, null, null));
         var futures = new ArrayList<Future<RateSnapshot>>(2);
         try {
             log.info("Collecting rates date={}", date);
+            journal.record(startedAt, "STARTED", date, 0);
             long deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(15);
             futures.add(executor.submit(() -> client.fetch(date)));
             futures.add(executor.submit(() -> client.fetch(date.minusDays(1))));
@@ -66,19 +74,34 @@ public class RateCollectionService {
             var rates = calculate(date, current, previous);
             // Сетевые запросы завершены: транзакция охватывает только запись всех пяти курсов.
             transaction.executeWithoutResult(tx -> repository.saveAll(rates));
+            String snapshotError = saveSnapshot(date, rates);
             var completedAt = clock.instant();
             status.set(new CollectionStatus("SUCCEEDED", date, startedAt, completedAt, completedAt,
-                    rates.size(), null));
+                    rates.size(), null, snapshotError));
+            journal.record(completedAt, "SUCCEEDED", date, rates.size());
             log.info("Rates saved date={} count={}", date, rates.size());
             return rates;
         } catch (RuntimeException ex) {
             String message = ex instanceof SourceException ? ex.getMessage() : "Не удалось сохранить курсы";
-            status.set(new CollectionStatus("FAILED", date, startedAt, clock.instant(), lastSuccess, 0, message));
+            status.set(new CollectionStatus("FAILED", date, startedAt, clock.instant(), lastSuccess, 0, message, null));
+            journal.record(clock.instant(), "FAILED", date, 0);
             log.error("Collection failed date={}", date, ex);
             throw ex;
         } finally {
             futures.forEach(future -> { if (!future.isDone()) future.cancel(true); });
             collectionLock.unlock();
+        }
+    }
+
+    private String saveSnapshot(LocalDate date, List<CurrencyRate> rates) {
+        try {
+            fileStore.save(date, rates);
+            return null;
+        } catch (IOException ex) {
+            // Файловая система и H2 не входят в общую транзакцию. H2 уже зафиксирована.
+            log.error("Snapshot write failed date={}", date, ex);
+            journal.record(clock.instant(), "SNAPSHOT_FAILED", date, rates.size());
+            return "Курсы сохранены в H2, но JSON-снимок не обновлён; повторите сбор";
         }
     }
 
@@ -131,5 +154,5 @@ public class RateCollectionService {
     }
 
     public record CollectionStatus(String state, LocalDate date, Instant startedAt, Instant completedAt,
-                                   Instant lastSuccessAt, int savedCount, String error) { }
+                                   Instant lastSuccessAt, int savedCount, String error, String snapshotError) { }
 }

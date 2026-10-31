@@ -33,3 +33,6 @@ GET http://localhost:8080/api/currencies
 
 ### Ошибка: неподдерживаемая валюта
 GET http://localhost:8080/answer?currency=BTC
+
+### Состояние демон-потока файлового журнала
+GET http://localhost:8080/api/journal

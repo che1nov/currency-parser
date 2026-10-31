@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.study.rates.adapter.CbrClient;
+import ru.study.rates.adapter.CollectionJournal;
 import ru.study.rates.model.Currency;
 import ru.study.rates.model.CurrencyRate;
 import ru.study.rates.service.RateCollectionService;
@@ -21,10 +22,12 @@ import ru.study.rates.service.RateQueryService;
 public class RateController {
     private final RateCollectionService collector;
     private final RateQueryService query;
+    private final CollectionJournal journal;
 
-    public RateController(RateCollectionService collector, RateQueryService query) {
+    public RateController(RateCollectionService collector, RateQueryService query, CollectionJournal journal) {
         this.collector = collector;
         this.query = query;
+        this.journal = journal;
     }
 
     @PostMapping("/api/collect")
@@ -51,6 +54,11 @@ public class RateController {
     @GetMapping("/api/status")
     public RateCollectionService.CollectionStatus status() {
         return collector.status();
+    }
+
+    @GetMapping("/api/journal")
+    public CollectionJournal.Health journal() {
+        return journal.health();
     }
 
     @GetMapping("/api/currencies")

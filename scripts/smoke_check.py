@@ -12,7 +12,7 @@ from urllib.request import Request, urlopen
 PROJECT = Path(__file__).resolve().parents[1]
 JAR = PROJECT / "currency-parser.jar"
 if not JAR.exists():
-    JAR = PROJECT / "target/currency-parser-1.0.0.jar"
+    JAR = PROJECT / "target/currency-parser-1.1.0.jar"
 BASE = "http://127.0.0.1:18080"
 
 
@@ -91,7 +91,7 @@ def main():
                 assert Decimal(str(row["changePercent"])) == expected
             print("PASS: historical collection, currency filter, numeric sorting and daily change", flush=True)
 
-            request("/api/collect", body)
+            last_result = request("/api/collect", body)
             saved = request("/answer?date=2024-03-05")
             assert len(saved) == 5
             request("/answer?currency=BTC", expected=400)
@@ -99,17 +99,37 @@ def main():
             request("/api/collect", {"date": "bad"}, expected=400)
             assert request("/answer?date=2020-01-01") == []
             print("PASS: repeated collection has no duplicates; invalid requests return HTTP 400", flush=True)
+            assert request("/api/status")["snapshotError"] is None
+            snapshot_path = Path(directory) / "data/snapshots/2024-03-05.json"
+            snapshot_text = snapshot_path.read_text()
+            snapshot = json.loads(snapshot_text)
+            expected_snapshot = [{key: value for key, value in row.items() if key != "baseCurrency"}
+                                 for row in last_result["rates"]]
+            assert snapshot == expected_snapshot
+            journal = request("/api/journal")
+            assert journal["running"] and journal["daemon"] and journal["rejectedEvents"] == 0
+            assert journal["error"] is None
+            print("PASS: JSON snapshot matches collected rates; standalone journal thread is a daemon", flush=True)
         except Exception:
             print((Path(directory) / "auto.log").read_text())
             raise
         finally:
             stop(process)
 
+        events_path = Path(directory) / "data/collection-events.jsonl"
+        events_text = events_path.read_text()
+        events = [json.loads(line) for line in events_text.splitlines()]
+        assert [event["event"] for event in events] == ["STARTED", "SUCCEEDED"] * 3
+        assert all(event["daemon"] and event["thread"] == "collection-journal" for event in events)
+        print("PASS: graceful shutdown drained all six journal events to file", flush=True)
+
         process = start(directory, automatic=False)
         try:
             ready(process)
             assert request("/answer?date=2024-03-05") == saved
             assert request("/api/status")["state"] == "IDLE"
+            assert snapshot_path.read_text() == snapshot_text
+            assert events_path.read_text() == events_text
             print("PASS: file H2 retains identical results after restart, without fetching again", flush=True)
         except Exception:
             print((Path(directory) / "restart.log").read_text())

@@ -1,6 +1,9 @@
 package ru.study.rates;
 
+import java.io.IOException;
 import java.math.BigDecimal;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.Clock;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -14,6 +17,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,10 +27,14 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 import org.springframework.test.web.servlet.MockMvc;
 import ru.study.rates.adapter.CbrClient;
+import ru.study.rates.adapter.FileRateStore;
 import ru.study.rates.adapter.SourceException;
 import ru.study.rates.model.Currency;
 import ru.study.rates.model.RateSnapshot;
@@ -41,8 +49,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(properties = {"spring.datasource.url=jdbc:h2:mem:rates-test;DB_CLOSE_DELAY=-1",
         "collector.scheduling-enabled=false"})
 @AutoConfigureMockMvc
+@DirtiesContext
 class RateApplicationTest {
     private static final LocalDate DATE = LocalDate.of(2024, 3, 5);
+    @TempDir static Path files;
+    @DynamicPropertySource
+    static void fileDirectory(DynamicPropertyRegistry registry) {
+        registry.add("collector.files-directory", () -> files.toString());
+    }
+    @MockitoSpyBean FileRateStore fileStore;
     @Autowired MockMvc mvc;
     @Autowired JdbcTemplate jdbc;
     @Autowired RateCollectionService collector;
@@ -110,9 +125,11 @@ class RateApplicationTest {
     void preservesDataAndReportsUpstreamFailure() throws Exception {
         collect().andExpect(status().isOk());
         var saved = repository.findByDate(DATE);
+        var savedFile = Files.readString(files.resolve("snapshots/2024-03-05.json"));
         doThrow(new SourceException("ЦБ недоступен")).when(client).fetch(DATE);
         collect().andExpect(status().isBadGateway()).andExpect(jsonPath("$.detail").value("ЦБ недоступен"));
         assertThat(repository.findByDate(DATE)).containsExactlyInAnyOrderElementsOf(saved);
+        assertThat(Files.readString(files.resolve("snapshots/2024-03-05.json"))).isEqualTo(savedFile);
         mvc.perform(get("/api/status")).andExpect(jsonPath("$.state").value("FAILED"))
                 .andExpect(jsonPath("$.lastSuccessAt").isNotEmpty());
         doReturn(snapshot(DATE, "103")).when(client).fetch(DATE);
@@ -123,6 +140,7 @@ class RateApplicationTest {
     void rollsBackWholeBatchOnDatabaseFailure() throws Exception {
         collect().andExpect(status().isOk());
         var saved = repository.findByDate(DATE);
+        var savedFile = Files.readString(files.resolve("snapshots/2024-03-05.json"));
         doReturn(snapshot(DATE, "110")).when(client).fetch(DATE);
         doAnswer(invocation -> {
             invocation.callRealMethod();
@@ -130,6 +148,7 @@ class RateApplicationTest {
         }).when(repository).saveAll(anyList());
         collect().andExpect(status().isServiceUnavailable());
         assertThat(repository.findByDate(DATE)).containsExactlyInAnyOrderElementsOf(saved);
+        assertThat(Files.readString(files.resolve("snapshots/2024-03-05.json"))).isEqualTo(savedFile);
     }
 
     @Test
@@ -189,6 +208,25 @@ class RateApplicationTest {
         mvc.perform(get("/answer").param("sort", "DROP TABLE")).andExpect(status().isBadRequest());
         mvc.perform(get("/answer").param("direction", "down")).andExpect(status().isBadRequest());
         verify(client, never()).fetch(any());
+    }
+
+    @Test
+    void exposesSnapshotFailureWithoutLosingCommittedRates() throws Exception {
+        doThrow(new IOException("Injected disk failure")).when(fileStore).save(any(), anyList());
+        collect().andExpect(status().isOk());
+        assertThat(repository.findByDate(DATE)).hasSize(5);
+        mvc.perform(get("/api/status")).andExpect(jsonPath("$.state").value("SUCCEEDED"))
+                .andExpect(jsonPath("$.snapshotError").isNotEmpty());
+    }
+
+    @Test
+    void writesSnapshotAndExposesDaemonHealth() throws Exception {
+        collect().andExpect(status().isOk());
+        var path = files.resolve("snapshots/2024-03-05.json");
+        assertThat(Files.readString(path)).contains("USD", "EUR", "CNY", "GBP", "JPY");
+        mvc.perform(get("/api/journal")).andExpect(status().isOk())
+                .andExpect(jsonPath("$.running").value(true)).andExpect(jsonPath("$.daemon").value(true))
+                .andExpect(jsonPath("$.rejectedEvents").value(0));
     }
 
     @Test
