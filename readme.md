@@ -4,6 +4,8 @@ Spring Boot MVC приложение на Java 17. Получает официа
 
 **[Скачать готовый архив для запуска](https://github.com/che1nov/currency-parser/releases/latest/download/currency-parser.zip)** · [Релизы](https://github.com/che1nov/currency-parser/releases)
 
+[Отчёт по теме 4: причины деградации производительности](report/performance-degradation.md).
+
 ## Запуск для преподавателя
 
 Нужна **Java 17 или новее**, свободный порт **8080** и доступ к `https://www.cbr.ru`. Установка БД, регистрация, ключи API и изменение конфигурации не требуются.
