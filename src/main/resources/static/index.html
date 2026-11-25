@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Курсы валют · Polling и WebSocket</title>
+<style>
+  :root{font-family:system-ui,sans-serif;color:#172b40;background:#eef3f7;font-size:16px}
+  *{box-sizing:border-box}body{margin:0}main{max-width:1100px;margin:48px auto;padding:0 24px}
+  .eyebrow{color:#42617c;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+  h1{font-size:clamp(28px,4vw,42px);letter-spacing:-.04em;margin:8px 0 12px}h2{font-size:19px;margin-top:0}
+  p{line-height:1.6;color:#476078}.card{background:white;border:1px solid #d6e1eb;border-radius:16px;padding:24px;margin-top:24px}
+  form{display:flex;gap:18px;align-items:end;flex-wrap:wrap}label{display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600}
+  input,select,button{font:inherit;border:1px solid #b6c8d8;border-radius:8px;padding:11px 13px;background:white;color:#172b40}
+  button{cursor:pointer;background:#164f89;color:white;border-color:#164f89;font-weight:600}button:disabled{opacity:.5;cursor:wait}
+  :focus-visible{outline:3px solid #f1ac36;outline-offset:3px}.status{margin:18px 0 0;min-height:26px;font-weight:600}
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}.metric{background:#f2f6fa;border-radius:10px;padding:16px}
+  .metric span{display:block;font-size:12px;color:#476078}.metric strong{display:block;font-size:26px;margin-top:8px;font-variant-numeric:tabular-nums}
+  .scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px;text-align:left;white-space:nowrap}th,td{padding:12px;border-bottom:1px solid #e2eaf1}
+  th{color:#476078;font-weight:600}td{font-variant-numeric:tabular-nums}.note{font-size:13px;margin-bottom:0}.error{color:#a02323}
+  @media(max-width:650px){main{margin:24px auto;padding:0 14px}.card{padding:18px}.metrics{grid-template-columns:repeat(2,1fr)}form>*{flex:1 1 160px}}
+</style>
+<main>
+  <div class="eyebrow">Парсер курсов ЦБ РФ</div>
+  <h1>Один результат. Два способа доставки.</h1>
+  <p>Сравните опрос сервера каждые 500 мс с получением результата по WebSocket.</p>
+  <section class="card">
+    <form id="controls">
+      <label>Способ получения<select id="mode"><option value="polling">REST + polling</option><option value="websocket">WebSocket</option></select></label>
+      <label>Дата курса<input id="date" type="date" value="2024-03-05" min="2000-01-02" required></label>
+      <label>Дополнительная задержка<select id="delay"><option value="0">Без задержки</option><option value="5000">5 секунд</option></select></label>
+      <button id="start" type="submit">Получить курсы</button>
+    </form>
+    <div id="status" class="status" role="status" aria-live="polite">Готов к запуску</div>
+    <div class="metrics">
+      <div class="metric"><span>До получения результата</span><strong id="elapsed">—</strong></div>
+      <div class="metric"><span>HTTP, включая WS handshake</span><strong id="requests">—</strong></div>
+      <div class="metric"><span>Из них GET опросов</span><strong id="polls">—</strong></div>
+      <div class="metric"><span>Данные JSON, оба направления</span><strong id="bytes">—</strong></div>
+    </div>
+    <p class="note">Счётчик данных учитывает UTF-8 тела запросов, ответов и сообщений. Заголовки HTTP, handshake и кадры WebSocket в байты JSON не входят. Время включает запуск задания и установку соединения.</p>
+  </section>
+  <section class="card">
+    <h2>Курсы к рублю</h2>
+    <div class="scroll"><table><thead><tr><th>Валюта</th><th>Название</th><th>Рублей за единицу</th><th>Изменение за день</th></tr></thead><tbody id="rates"><tr><td colspan="4">Запустите сбор, чтобы получить данные.</td></tr></tbody></table></div>
+    <p class="note">Изменение рассчитывается относительно предыдущего календарного дня. Сбор использует настоящий источник ЦБ РФ и требует подключения к интернету.</p>
+  </section>
+  <section class="card">
+    <h2>Результаты этого сеанса</h2>
+    <div class="scroll"><table><thead><tr><th>Режим</th><th>Задержка</th><th>Время, мс</th><th>HTTP</th><th>GET</th><th>JSON, байт</th><th>Результат</th></tr></thead><tbody id="history"></tbody></table></div>
+  </section>
+</main>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const utf8 = text => new TextEncoder().encode(text).length;
+const history = [];
+let active = null;
+$('date').max = new Intl.DateTimeFormat('sv-SE', {timeZone:'Europe/Moscow'}).format(new Date());
+
+function cells(row, values) {
+  values.forEach(value => { const cell = document.createElement('td'); cell.textContent = value; row.append(cell); });
+}
+function renderMetrics(run) {
+  $('elapsed').textContent = run.durationMs == null ? '…' : (run.durationMs / 1000).toFixed(3) + ' с';
+  $('requests').textContent = run.httpRequests;
+  $('polls').textContent = run.pollRequests;
+  $('bytes').textContent = run.jsonBytes + ' Б';
+}
+function finish(run, result, error) {
+  if (active !== run || run.finished) return;
+  run.finished = true;
+  run.durationMs = +(performance.now() - run.started).toFixed(2);
+  clearInterval(run.interval); clearTimeout(run.deadline);
+  run.abort.abort();
+  if (run.socket) run.socket.close();
+  run.state = error ? 'ERROR' : result.state;
+  run.result = result || null;
+  run.error = error || (result && result.error) || null;
+  $('status').textContent = run.error || 'Готово · получено ' + result.rates.length + ' курсов';
+  $('status').classList.toggle('error', Boolean(run.error));
+  $('rates').replaceChildren();
+  if (result && result.state === 'SUCCEEDED') {
+    result.rates.forEach(rate => {
+      const row = document.createElement('tr');
+      cells(row, [rate.currency, rate.name, rate.rate, rate.change]);
+      $('rates').append(row);
+    });
+  }
+  renderMetrics(run);
+  const record = {mode:run.mode, delayMs:run.delayMs, durationMs:run.durationMs,
+    httpRequests:run.httpRequests, pollRequests:run.pollRequests, jsonBytes:run.jsonBytes,
+    wsMessages:run.wsMessages, state:run.state, result:run.result, error:run.error};
+  history.push(record);
+  const row = document.createElement('tr');
+  cells(row, [run.mode, run.delayMs + ' мс', run.durationMs, run.httpRequests, run.pollRequests, run.jsonBytes, run.state]);
+  $('history').prepend(row);
+  if (history.length > 100) { history.shift(); $('history').lastElementChild.remove(); }
+  window.lastMeasurement = record;
+  active = null;
+  $('controls').querySelectorAll('input,select,button').forEach(element => element.disabled = false);
+}
+async function request(run, url, options = {}) {
+  run.httpRequests++;
+  run.jsonBytes += utf8(options.body || '');
+  const response = await fetch(url, {...options, cache:'no-store', signal:run.abort.signal});
+  const text = await response.text();
+  run.jsonBytes += utf8(text);
+  renderMetrics(run);
+  const data = JSON.parse(text);
+  if (!response.ok) throw new Error(data.detail || 'HTTP ' + response.status);
+  return data;
+}
+async function start(event) {
+  event.preventDefault();
+  if (active) return;
+  const run = {mode:$('mode').value, delayMs:Number($('delay').value), started:performance.now(),
+    httpRequests:0, pollRequests:0, jsonBytes:0, wsMessages:0, finished:false, abort:new AbortController()};
+  active = run;
+  window.lastMeasurement = null;
+  $('controls').querySelectorAll('input,select,button').forEach(element => element.disabled = true);
+  $('status').textContent = 'Собираем курсы…'; $('status').classList.remove('error');
+  run.deadline = setTimeout(() => finish(run, null, 'Нет результата за 60 секунд. Задание могло продолжить работу; повторите позже.'), 60000);
+  renderMetrics(run);
+  try {
+    const job = await request(run, '/api/jobs', {method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({date:$('date').value, delayMs:run.delayMs})});
+    if (run.finished) return;
+    if (run.mode === 'polling') {
+      let inFlight = false;
+      // Первый GET через 500 мс; медленные ответы не создают перекрывающиеся запросы.
+      run.interval = setInterval(async () => {
+        if (run.finished || inFlight) return;
+        inFlight = true; run.pollRequests++;
+        try {
+          const result = await request(run, '/api/jobs/' + job.id);
+          if (['SUCCEEDED','FAILED'].includes(result.state)) finish(run, result);
+        } catch (error) { if (!run.finished) finish(run, null, error.message); }
+        finally { inFlight = false; }
+      }, 500);
+    } else {
+      const scheme = location.protocol === 'https:' ? 'wss:' : 'ws:';
+      run.httpRequests++; // HTTP Upgrade, отдельного GET статуса нет.
+      const socket = run.socket = new WebSocket(scheme + '//' + location.host + '/ws/jobs/' + job.id);
+      socket.onmessage = event => {
+        if (run.finished) return;
+        try {
+          run.wsMessages++; run.jsonBytes += utf8(event.data);
+          const result = JSON.parse(event.data);
+          if (result.id !== job.id || !['SUCCEEDED','FAILED'].includes(result.state)) throw new Error('Неожиданный ответ WebSocket');
+          finish(run, result);
+        } catch (error) { finish(run, null, error.message); }
+      };
+      socket.onerror = () => finish(run, null, 'Ошибка WebSocket. Проверьте соединение и повторите запуск.');
+      socket.onclose = () => { if (!run.finished) finish(run, null, 'WebSocket закрыт до получения результата.'); };
+      renderMetrics(run);
+    }
+  } catch (error) { if (!run.finished) finish(run, null, error.message); }
+}
+$('controls').addEventListener('submit', start);
+window.addEventListener('pagehide', () => {
+  if (active) { clearInterval(active.interval); clearTimeout(active.deadline); active.abort.abort(); active.socket?.close(); }
+});
+</script>
+</html>

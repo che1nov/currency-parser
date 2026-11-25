@@ -1,0 +1,40 @@
+{
+  "tests": 40,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "suites": [
+    {
+      "name": "ru.study.rates.service.CollectionJobServiceTest",
+      "tests": 4
+    },
+    {
+      "name": "ru.study.rates.config.CollectionScheduleTest",
+      "tests": 3
+    },
+    {
+      "name": "ru.study.rates.adapter.FileRateStoreTest",
+      "tests": 2
+    },
+    {
+      "name": "ru.study.rates.config.CbrTlsTest",
+      "tests": 1
+    },
+    {
+      "name": "ru.study.rates.adapter.CbrClientTest",
+      "tests": 10
+    },
+    {
+      "name": "ru.study.rates.adapter.CollectionJournalTest",
+      "tests": 4
+    },
+    {
+      "name": "ru.study.rates.CollectionDeliveryTest",
+      "tests": 4
+    },
+    {
+      "name": "ru.study.rates.RateApplicationTest",
+      "tests": 12
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "pageErrors": [],
+  "successfulOperations": 12,
+  "identicalRates": true,
+  "httpCountsMatchDevTools": true,
+  "oneWsResultPerOperation": true,
+  "artificialDelayVerified": true,
+  "compressionDisabled": true,
+  "uiRecoversAfterHttpError": true,
+  "unit": "wire bytes include HTTP and WebSocket framing, not TCP/IP"
+}

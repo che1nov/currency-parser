@@ -1,0 +1,3283 @@
+{
+  "browser": "26.11.0.0",
+  "warmups": [
+    {
+      "mode": "polling",
+      "delayMs": 0,
+      "durationMs": 546.8,
+      "httpRequests": 2,
+      "pollRequests": 1,
+      "jsonBytes": 1839,
+      "wsMessages": 0,
+      "state": "SUCCEEDED",
+      "result": {
+        "id": "5496cd9a-1a16-40d3-87cc-41894698eb06",
+        "state": "SUCCEEDED",
+        "date": "2024-03-05",
+        "startedAt": "2026-11-25T05:30:33.761424Z",
+        "completedAt": "2026-11-25T05:30:34.054846Z",
+        "rates": [
+          {
+            "date": "2024-03-05",
+            "currency": "USD",
+            "name": "Доллар США",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 91.3534,
+            "previousRate": 91.3336,
+            "change": 0.0198,
+            "changePercent": 0.021679,
+            "fetchedAt": "2026-11-25T05:30:34.040190Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "EUR",
+            "name": "Евро",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 99.1061,
+            "previousRate": 98.7225,
+            "change": 0.3836,
+            "changePercent": 0.388564,
+            "fetchedAt": "2026-11-25T05:30:34.040197Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "CNY",
+            "name": "Юань",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 12.6478,
+            "previousRate": 12.6316,
+            "change": 0.0162,
+            "changePercent": 0.12825,
+            "fetchedAt": "2026-11-25T05:30:34.040199Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "GBP",
+            "name": "Фунт стерлингов",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 115.5803,
+            "previousRate": 115.537,
+            "change": 0.0433,
+            "changePercent": 0.037477,
+            "fetchedAt": "2026-11-25T05:30:34.040200Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "JPY",
+            "name": "Иен",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 0.608941,
+            "previousRate": 0.607271,
+            "change": 0.00167,
+            "changePercent": 0.275001,
+            "fetchedAt": "2026-11-25T05:30:34.040202Z"
+          }
+        ],
+        "error": null
+      },
+      "error": null,
+      "wire": {
+        "uploadBytes": 1369,
+        "downloadBytes": 2261,
+        "totalBytes": 3630,
+        "events": [
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 725,
+            "offsetMs": 32.807
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 418,
+            "offsetMs": 59.688
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 59.767
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 568.053
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 1833,
+            "offsetMs": 575.228
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 575.334
+          }
+        ]
+      },
+      "network": [
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "method": "POST",
+          "timestamp": 907574.982948,
+          "requestId": "3125.4"
+        },
+        {
+          "type": "httpResponse",
+          "status": 202,
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "requestId": "3125.4",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/5496cd9a-1a16-40d3-87cc-41894698eb06",
+          "method": "GET",
+          "timestamp": 907575.517381,
+          "requestId": "3125.5"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/5496cd9a-1a16-40d3-87cc-41894698eb06",
+          "requestId": "3125.5",
+          "contentEncoding": null
+        }
+      ]
+    },
+    {
+      "mode": "websocket",
+      "delayMs": 0,
+      "durationMs": 56.6,
+      "httpRequests": 2,
+      "pollRequests": 0,
+      "jsonBytes": 1839,
+      "wsMessages": 1,
+      "state": "SUCCEEDED",
+      "result": {
+        "id": "a3ac4034-cfae-4184-ab73-5fde55a852a4",
+        "state": "SUCCEEDED",
+        "date": "2024-03-05",
+        "startedAt": "2026-11-25T05:30:34.502177Z",
+        "completedAt": "2026-11-25T05:30:34.555287Z",
+        "rates": [
+          {
+            "date": "2024-03-05",
+            "currency": "USD",
+            "name": "Доллар США",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 91.3534,
+            "previousRate": 91.3336,
+            "change": 0.0198,
+            "changePercent": 0.021679,
+            "fetchedAt": "2026-11-25T05:30:34.553341Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "EUR",
+            "name": "Евро",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 99.1061,
+            "previousRate": 98.7225,
+            "change": 0.3836,
+            "changePercent": 0.388564,
+            "fetchedAt": "2026-11-25T05:30:34.553344Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "CNY",
+            "name": "Юань",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 12.6478,
+            "previousRate": 12.6316,
+            "change": 0.0162,
+            "changePercent": 0.12825,
+            "fetchedAt": "2026-11-25T05:30:34.553345Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "GBP",
+            "name": "Фунт стерлингов",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 115.5803,
+            "previousRate": 115.537,
+            "change": 0.0433,
+            "changePercent": 0.037477,
+            "fetchedAt": "2026-11-25T05:30:34.553346Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "JPY",
+            "name": "Иен",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 0.608941,
+            "previousRate": 0.607271,
+            "change": 0.00167,
+            "changePercent": 0.275001,
+            "fetchedAt": "2026-11-25T05:30:34.553348Z"
+          }
+        ],
+        "error": null
+      },
+      "error": null,
+      "wire": {
+        "uploadBytes": 1301,
+        "downloadBytes": 2217,
+        "totalBytes": 3518,
+        "events": [
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 725,
+            "offsetMs": 29.356
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 418,
+            "offsetMs": 31.189
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 31.287
+          },
+          {
+            "connection": 2,
+            "direction": "upload",
+            "bytes": 568,
+            "offsetMs": 46.987
+          },
+          {
+            "connection": 2,
+            "direction": "download",
+            "bytes": 147,
+            "offsetMs": 59.491
+          },
+          {
+            "connection": 2,
+            "direction": "download",
+            "bytes": 1643,
+            "offsetMs": 84.908
+          },
+          {
+            "connection": 2,
+            "direction": "download",
+            "bytes": 4,
+            "offsetMs": 85.199
+          },
+          {
+            "connection": 2,
+            "direction": "upload",
+            "bytes": 8,
+            "offsetMs": 85.525
+          }
+        ]
+      },
+      "network": [
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "method": "POST",
+          "timestamp": 907575.744742,
+          "requestId": "3125.6"
+        },
+        {
+          "type": "httpResponse",
+          "status": 202,
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "requestId": "3125.6",
+          "contentEncoding": null
+        },
+        {
+          "type": "wsHandshake",
+          "timestamp": 907575.762685
+        },
+        {
+          "type": "wsUpgrade",
+          "status": 101,
+          "headers": {
+            "Upgrade": "websocket",
+            "Date": "Wed, 25 Nov 2026 05:30:34 GMT",
+            "Sec-WebSocket-Accept": "QyhEJpah1JkauJ3rOXPY4febuyY=",
+            "Connection": "upgrade"
+          }
+        },
+        {
+          "type": "wsFrame",
+          "opcode": 1,
+          "bytes": 1639,
+          "timestamp": 907575.80093
+        }
+      ]
+    }
+  ],
+  "measurements": [
+    {
+      "mode": "polling",
+      "delayMs": 0,
+      "durationMs": 519.5,
+      "httpRequests": 2,
+      "pollRequests": 1,
+      "jsonBytes": 1839,
+      "wsMessages": 0,
+      "state": "SUCCEEDED",
+      "result": {
+        "id": "32a55baf-1ad1-4367-ba2a-b44aa04cdc90",
+        "state": "SUCCEEDED",
+        "date": "2024-03-05",
+        "startedAt": "2026-11-25T05:30:34.770719Z",
+        "completedAt": "2026-11-25T05:30:34.923422Z",
+        "rates": [
+          {
+            "date": "2024-03-05",
+            "currency": "USD",
+            "name": "Доллар США",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 91.3534,
+            "previousRate": 91.3336,
+            "change": 0.0198,
+            "changePercent": 0.021679,
+            "fetchedAt": "2026-11-25T05:30:34.920522Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "EUR",
+            "name": "Евро",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 99.1061,
+            "previousRate": 98.7225,
+            "change": 0.3836,
+            "changePercent": 0.388564,
+            "fetchedAt": "2026-11-25T05:30:34.920527Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "CNY",
+            "name": "Юань",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 12.6478,
+            "previousRate": 12.6316,
+            "change": 0.0162,
+            "changePercent": 0.12825,
+            "fetchedAt": "2026-11-25T05:30:34.920530Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "GBP",
+            "name": "Фунт стерлингов",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 115.5803,
+            "previousRate": 115.537,
+            "change": 0.0433,
+            "changePercent": 0.037477,
+            "fetchedAt": "2026-11-25T05:30:34.920535Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "JPY",
+            "name": "Иен",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 0.608941,
+            "previousRate": 0.607271,
+            "change": 0.00167,
+            "changePercent": 0.275001,
+            "fetchedAt": "2026-11-25T05:30:34.920538Z"
+          }
+        ],
+        "error": null
+      },
+      "error": null,
+      "wire": {
+        "uploadBytes": 1369,
+        "downloadBytes": 2261,
+        "totalBytes": 3630,
+        "events": [
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 725,
+            "offsetMs": 34.779
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 418,
+            "offsetMs": 37.167
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 37.255
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 551.357
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 1833,
+            "offsetMs": 552.82
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 552.961
+          }
+        ]
+      },
+      "network": [
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "method": "POST",
+          "timestamp": 907576.012795,
+          "requestId": "3125.8"
+        },
+        {
+          "type": "httpResponse",
+          "status": 202,
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "requestId": "3125.8",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/32a55baf-1ad1-4367-ba2a-b44aa04cdc90",
+          "method": "GET",
+          "timestamp": 907576.529462,
+          "requestId": "3125.9"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/32a55baf-1ad1-4367-ba2a-b44aa04cdc90",
+          "requestId": "3125.9",
+          "contentEncoding": null
+        }
+      ]
+    },
+    {
+      "mode": "websocket",
+      "delayMs": 0,
+      "durationMs": 72.5,
+      "httpRequests": 2,
+      "pollRequests": 0,
+      "jsonBytes": 1839,
+      "wsMessages": 1,
+      "state": "SUCCEEDED",
+      "result": {
+        "id": "7b091d48-540a-4b3d-ab68-a3539f075fc0",
+        "state": "SUCCEEDED",
+        "date": "2024-03-05",
+        "startedAt": "2026-11-25T05:30:35.487302Z",
+        "completedAt": "2026-11-25T05:30:35.556541Z",
+        "rates": [
+          {
+            "date": "2024-03-05",
+            "currency": "USD",
+            "name": "Доллар США",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 91.3534,
+            "previousRate": 91.3336,
+            "change": 0.0198,
+            "changePercent": 0.021679,
+            "fetchedAt": "2026-11-25T05:30:35.554390Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "EUR",
+            "name": "Евро",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 99.1061,
+            "previousRate": 98.7225,
+            "change": 0.3836,
+            "changePercent": 0.388564,
+            "fetchedAt": "2026-11-25T05:30:35.554393Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "CNY",
+            "name": "Юань",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 12.6478,
+            "previousRate": 12.6316,
+            "change": 0.0162,
+            "changePercent": 0.12825,
+            "fetchedAt": "2026-11-25T05:30:35.554394Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "GBP",
+            "name": "Фунт стерлингов",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 115.5803,
+            "previousRate": 115.537,
+            "change": 0.0433,
+            "changePercent": 0.037477,
+            "fetchedAt": "2026-11-25T05:30:35.554396Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "JPY",
+            "name": "Иен",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 0.608941,
+            "previousRate": 0.607271,
+            "change": 0.00167,
+            "changePercent": 0.275001,
+            "fetchedAt": "2026-11-25T05:30:35.554397Z"
+          }
+        ],
+        "error": null
+      },
+      "error": null,
+      "wire": {
+        "uploadBytes": 1301,
+        "downloadBytes": 2217,
+        "totalBytes": 3518,
+        "events": [
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 725,
+            "offsetMs": 23.128
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 418,
+            "offsetMs": 25.726
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 25.824
+          },
+          {
+            "connection": 3,
+            "direction": "upload",
+            "bytes": 568,
+            "offsetMs": 38.879
+          },
+          {
+            "connection": 3,
+            "direction": "download",
+            "bytes": 147,
+            "offsetMs": 40.843
+          },
+          {
+            "connection": 3,
+            "direction": "download",
+            "bytes": 1647,
+            "offsetMs": 94.734
+          },
+          {
+            "connection": 3,
+            "direction": "upload",
+            "bytes": 8,
+            "offsetMs": 94.862
+          }
+        ]
+      },
+      "network": [
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "method": "POST",
+          "timestamp": 907576.729411,
+          "requestId": "3125.10"
+        },
+        {
+          "type": "httpResponse",
+          "status": 202,
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "requestId": "3125.10",
+          "contentEncoding": null
+        },
+        {
+          "type": "wsHandshake",
+          "timestamp": 907576.744978
+        },
+        {
+          "type": "wsUpgrade",
+          "status": 101,
+          "headers": {
+            "Upgrade": "websocket",
+            "Date": "Wed, 25 Nov 2026 05:30:35 GMT",
+            "Sec-WebSocket-Accept": "I5xSIpd8/6bFvzQbMk8ov5kwyiU=",
+            "Connection": "upgrade"
+          }
+        },
+        {
+          "type": "wsFrame",
+          "opcode": 1,
+          "bytes": 1639,
+          "timestamp": 907576.801713
+        }
+      ]
+    },
+    {
+      "mode": "websocket",
+      "delayMs": 0,
+      "durationMs": 141.7,
+      "httpRequests": 2,
+      "pollRequests": 0,
+      "jsonBytes": 1839,
+      "wsMessages": 1,
+      "state": "SUCCEEDED",
+      "result": {
+        "id": "de990b80-6ef5-444f-84c3-ce68da74c618",
+        "state": "SUCCEEDED",
+        "date": "2024-03-05",
+        "startedAt": "2026-11-25T05:30:35.770716Z",
+        "completedAt": "2026-11-25T05:30:35.908159Z",
+        "rates": [
+          {
+            "date": "2024-03-05",
+            "currency": "USD",
+            "name": "Доллар США",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 91.3534,
+            "previousRate": 91.3336,
+            "change": 0.0198,
+            "changePercent": 0.021679,
+            "fetchedAt": "2026-11-25T05:30:35.903273Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "EUR",
+            "name": "Евро",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 99.1061,
+            "previousRate": 98.7225,
+            "change": 0.3836,
+            "changePercent": 0.388564,
+            "fetchedAt": "2026-11-25T05:30:35.903281Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "CNY",
+            "name": "Юань",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 12.6478,
+            "previousRate": 12.6316,
+            "change": 0.0162,
+            "changePercent": 0.12825,
+            "fetchedAt": "2026-11-25T05:30:35.903284Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "GBP",
+            "name": "Фунт стерлингов",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 115.5803,
+            "previousRate": 115.537,
+            "change": 0.0433,
+            "changePercent": 0.037477,
+            "fetchedAt": "2026-11-25T05:30:35.903287Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "JPY",
+            "name": "Иен",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 0.608941,
+            "previousRate": 0.607271,
+            "change": 0.00167,
+            "changePercent": 0.275001,
+            "fetchedAt": "2026-11-25T05:30:35.903292Z"
+          }
+        ],
+        "error": null
+      },
+      "error": null,
+      "wire": {
+        "uploadBytes": 1301,
+        "downloadBytes": 2217,
+        "totalBytes": 3518,
+        "events": [
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 725,
+            "offsetMs": 37.069
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 418,
+            "offsetMs": 39.694
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 39.775
+          },
+          {
+            "connection": 4,
+            "direction": "upload",
+            "bytes": 568,
+            "offsetMs": 53.143
+          },
+          {
+            "connection": 4,
+            "direction": "download",
+            "bytes": 147,
+            "offsetMs": 54.36
+          },
+          {
+            "connection": 4,
+            "direction": "download",
+            "bytes": 1647,
+            "offsetMs": 177.25
+          },
+          {
+            "connection": 4,
+            "direction": "upload",
+            "bytes": 8,
+            "offsetMs": 177.584
+          }
+        ]
+      },
+      "network": [
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "method": "POST",
+          "timestamp": 907577.012569,
+          "requestId": "3125.12"
+        },
+        {
+          "type": "httpResponse",
+          "status": 202,
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "requestId": "3125.12",
+          "contentEncoding": null
+        },
+        {
+          "type": "wsHandshake",
+          "timestamp": 907577.028855
+        },
+        {
+          "type": "wsUpgrade",
+          "status": 101,
+          "headers": {
+            "Upgrade": "websocket",
+            "Date": "Wed, 25 Nov 2026 05:30:35 GMT",
+            "Sec-WebSocket-Accept": "v6EoFxzsUAUDPaivBABMCiFtowc=",
+            "Connection": "upgrade"
+          }
+        },
+        {
+          "type": "wsFrame",
+          "opcode": 1,
+          "bytes": 1639,
+          "timestamp": 907577.153782
+        }
+      ]
+    },
+    {
+      "mode": "polling",
+      "delayMs": 0,
+      "durationMs": 523.9,
+      "httpRequests": 2,
+      "pollRequests": 1,
+      "jsonBytes": 1839,
+      "wsMessages": 0,
+      "state": "SUCCEEDED",
+      "result": {
+        "id": "67801572-f121-41ef-acb6-4785438acc83",
+        "state": "SUCCEEDED",
+        "date": "2024-03-05",
+        "startedAt": "2026-11-25T05:30:36.120487Z",
+        "completedAt": "2026-11-25T05:30:36.219540Z",
+        "rates": [
+          {
+            "date": "2024-03-05",
+            "currency": "USD",
+            "name": "Доллар США",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 91.3534,
+            "previousRate": 91.3336,
+            "change": 0.0198,
+            "changePercent": 0.021679,
+            "fetchedAt": "2026-11-25T05:30:36.217147Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "EUR",
+            "name": "Евро",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 99.1061,
+            "previousRate": 98.7225,
+            "change": 0.3836,
+            "changePercent": 0.388564,
+            "fetchedAt": "2026-11-25T05:30:36.217157Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "CNY",
+            "name": "Юань",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 12.6478,
+            "previousRate": 12.6316,
+            "change": 0.0162,
+            "changePercent": 0.12825,
+            "fetchedAt": "2026-11-25T05:30:36.217160Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "GBP",
+            "name": "Фунт стерлингов",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 115.5803,
+            "previousRate": 115.537,
+            "change": 0.0433,
+            "changePercent": 0.037477,
+            "fetchedAt": "2026-11-25T05:30:36.217163Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "JPY",
+            "name": "Иен",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 0.608941,
+            "previousRate": 0.607271,
+            "change": 0.00167,
+            "changePercent": 0.275001,
+            "fetchedAt": "2026-11-25T05:30:36.217165Z"
+          }
+        ],
+        "error": null
+      },
+      "error": null,
+      "wire": {
+        "uploadBytes": 1369,
+        "downloadBytes": 2261,
+        "totalBytes": 3630,
+        "events": [
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 725,
+            "offsetMs": 25.597
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 418,
+            "offsetMs": 27.609
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 27.694
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 543.214
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 1833,
+            "offsetMs": 547.048
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 547.158
+          }
+        ]
+      },
+      "network": [
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "method": "POST",
+          "timestamp": 907577.362843,
+          "requestId": "3125.14"
+        },
+        {
+          "type": "httpResponse",
+          "status": 202,
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "requestId": "3125.14",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/67801572-f121-41ef-acb6-4785438acc83",
+          "method": "GET",
+          "timestamp": 907577.879101,
+          "requestId": "3125.15"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/67801572-f121-41ef-acb6-4785438acc83",
+          "requestId": "3125.15",
+          "contentEncoding": null
+        }
+      ]
+    },
+    {
+      "mode": "polling",
+      "delayMs": 0,
+      "durationMs": 521.8,
+      "httpRequests": 2,
+      "pollRequests": 1,
+      "jsonBytes": 1839,
+      "wsMessages": 0,
+      "state": "SUCCEEDED",
+      "result": {
+        "id": "5251910f-e5d4-4cd1-9d09-bef35b05d32e",
+        "state": "SUCCEEDED",
+        "date": "2024-03-05",
+        "startedAt": "2026-11-25T05:30:36.856392Z",
+        "completedAt": "2026-11-25T05:30:36.983195Z",
+        "rates": [
+          {
+            "date": "2024-03-05",
+            "currency": "USD",
+            "name": "Доллар США",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 91.3534,
+            "previousRate": 91.3336,
+            "change": 0.0198,
+            "changePercent": 0.021679,
+            "fetchedAt": "2026-11-25T05:30:36.978286Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "EUR",
+            "name": "Евро",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 99.1061,
+            "previousRate": 98.7225,
+            "change": 0.3836,
+            "changePercent": 0.388564,
+            "fetchedAt": "2026-11-25T05:30:36.978304Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "CNY",
+            "name": "Юань",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 12.6478,
+            "previousRate": 12.6316,
+            "change": 0.0162,
+            "changePercent": 0.12825,
+            "fetchedAt": "2026-11-25T05:30:36.978308Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "GBP",
+            "name": "Фунт стерлингов",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 115.5803,
+            "previousRate": 115.537,
+            "change": 0.0433,
+            "changePercent": 0.037477,
+            "fetchedAt": "2026-11-25T05:30:36.978312Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "JPY",
+            "name": "Иен",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 0.608941,
+            "previousRate": 0.607271,
+            "change": 0.00167,
+            "changePercent": 0.275001,
+            "fetchedAt": "2026-11-25T05:30:36.978315Z"
+          }
+        ],
+        "error": null
+      },
+      "error": null,
+      "wire": {
+        "uploadBytes": 1369,
+        "downloadBytes": 2261,
+        "totalBytes": 3630,
+        "events": [
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 725,
+            "offsetMs": 26.421
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 418,
+            "offsetMs": 29.677
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 29.794
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 541.577
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 1833,
+            "offsetMs": 545.245
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 545.398
+          }
+        ]
+      },
+      "network": [
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "method": "POST",
+          "timestamp": 907578.097438,
+          "requestId": "3125.16"
+        },
+        {
+          "type": "httpResponse",
+          "status": 202,
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "requestId": "3125.16",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/5251910f-e5d4-4cd1-9d09-bef35b05d32e",
+          "method": "GET",
+          "timestamp": 907578.612133,
+          "requestId": "3125.17"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/5251910f-e5d4-4cd1-9d09-bef35b05d32e",
+          "requestId": "3125.17",
+          "contentEncoding": null
+        }
+      ]
+    },
+    {
+      "mode": "websocket",
+      "delayMs": 0,
+      "durationMs": 48.2,
+      "httpRequests": 2,
+      "pollRequests": 0,
+      "jsonBytes": 1839,
+      "wsMessages": 1,
+      "state": "SUCCEEDED",
+      "result": {
+        "id": "0462709b-07dd-4b95-96a4-ef006baf09ee",
+        "state": "SUCCEEDED",
+        "date": "2024-03-05",
+        "startedAt": "2026-11-25T05:30:37.607355Z",
+        "completedAt": "2026-11-25T05:30:37.650154Z",
+        "rates": [
+          {
+            "date": "2024-03-05",
+            "currency": "USD",
+            "name": "Доллар США",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 91.3534,
+            "previousRate": 91.3336,
+            "change": 0.0198,
+            "changePercent": 0.021679,
+            "fetchedAt": "2026-11-25T05:30:37.647963Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "EUR",
+            "name": "Евро",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 99.1061,
+            "previousRate": 98.7225,
+            "change": 0.3836,
+            "changePercent": 0.388564,
+            "fetchedAt": "2026-11-25T05:30:37.647967Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "CNY",
+            "name": "Юань",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 12.6478,
+            "previousRate": 12.6316,
+            "change": 0.0162,
+            "changePercent": 0.12825,
+            "fetchedAt": "2026-11-25T05:30:37.647969Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "GBP",
+            "name": "Фунт стерлингов",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 115.5803,
+            "previousRate": 115.537,
+            "change": 0.0433,
+            "changePercent": 0.037477,
+            "fetchedAt": "2026-11-25T05:30:37.647971Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "JPY",
+            "name": "Иен",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 0.608941,
+            "previousRate": 0.607271,
+            "change": 0.00167,
+            "changePercent": 0.275001,
+            "fetchedAt": "2026-11-25T05:30:37.647973Z"
+          }
+        ],
+        "error": null
+      },
+      "error": null,
+      "wire": {
+        "uploadBytes": 1301,
+        "downloadBytes": 2217,
+        "totalBytes": 3518,
+        "events": [
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 725,
+            "offsetMs": 41.832
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 418,
+            "offsetMs": 45.144
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 45.232
+          },
+          {
+            "connection": 5,
+            "direction": "upload",
+            "bytes": 568,
+            "offsetMs": 56.059
+          },
+          {
+            "connection": 5,
+            "direction": "download",
+            "bytes": 147,
+            "offsetMs": 57.557
+          },
+          {
+            "connection": 5,
+            "direction": "download",
+            "bytes": 1647,
+            "offsetMs": 88.184
+          },
+          {
+            "connection": 5,
+            "direction": "upload",
+            "bytes": 8,
+            "offsetMs": 88.346
+          }
+        ]
+      },
+      "network": [
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "method": "POST",
+          "timestamp": 907578.847972,
+          "requestId": "3125.18"
+        },
+        {
+          "type": "httpResponse",
+          "status": 202,
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "requestId": "3125.18",
+          "contentEncoding": null
+        },
+        {
+          "type": "wsHandshake",
+          "timestamp": 907578.862853
+        },
+        {
+          "type": "wsUpgrade",
+          "status": 101,
+          "headers": {
+            "Upgrade": "websocket",
+            "Date": "Wed, 25 Nov 2026 05:30:37 GMT",
+            "Sec-WebSocket-Accept": "FXhq8MSukphfCmfstKo+rmT8JHE=",
+            "Connection": "upgrade"
+          }
+        },
+        {
+          "type": "wsFrame",
+          "opcode": 1,
+          "bytes": 1639,
+          "timestamp": 907578.895683
+        }
+      ]
+    },
+    {
+      "mode": "polling",
+      "delayMs": 5000,
+      "durationMs": 5520.2,
+      "httpRequests": 12,
+      "pollRequests": 11,
+      "jsonBytes": 3522,
+      "wsMessages": 0,
+      "state": "SUCCEEDED",
+      "result": {
+        "id": "22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+        "state": "SUCCEEDED",
+        "date": "2024-03-05",
+        "startedAt": "2026-11-25T05:30:37.872014Z",
+        "completedAt": "2026-11-25T05:30:42.943545Z",
+        "rates": [
+          {
+            "date": "2024-03-05",
+            "currency": "USD",
+            "name": "Доллар США",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 91.3534,
+            "previousRate": 91.3336,
+            "change": 0.0198,
+            "changePercent": 0.021679,
+            "fetchedAt": "2026-11-25T05:30:42.940086Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "EUR",
+            "name": "Евро",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 99.1061,
+            "previousRate": 98.7225,
+            "change": 0.3836,
+            "changePercent": 0.388564,
+            "fetchedAt": "2026-11-25T05:30:42.940093Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "CNY",
+            "name": "Юань",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 12.6478,
+            "previousRate": 12.6316,
+            "change": 0.0162,
+            "changePercent": 0.12825,
+            "fetchedAt": "2026-11-25T05:30:42.940096Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "GBP",
+            "name": "Фунт стерлингов",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 115.5803,
+            "previousRate": 115.537,
+            "change": 0.0433,
+            "changePercent": 0.037477,
+            "fetchedAt": "2026-11-25T05:30:42.940098Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "JPY",
+            "name": "Иен",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 0.608941,
+            "previousRate": 0.607271,
+            "change": 0.00167,
+            "changePercent": 0.275001,
+            "fetchedAt": "2026-11-25T05:30:42.940101Z"
+          }
+        ],
+        "error": null
+      },
+      "error": null,
+      "wire": {
+        "uploadBytes": 7812,
+        "downloadBytes": 5921,
+        "totalBytes": 13733,
+        "events": [
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 728,
+            "offsetMs": 27.934
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 418,
+            "offsetMs": 31.194
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 31.315
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 545.699
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 549.473
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 549.646
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 1044.85
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 1047.843
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 1047.961
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 1545.223
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 1548.465
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 1548.652
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 2045.158
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 2048.746
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 2048.872
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 2545.482
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 2548.735
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 2548.867
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 3045.818
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 3049.404
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 3049.624
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 3545.513
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 3548.583
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 3548.716
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 4045.72
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 4048.566
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 4048.726
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 4545.337
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 4548.825
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 4548.97
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 5045.139
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 5047.933
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 5048.142
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 5543.926
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 1833,
+            "offsetMs": 5545.912
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 5546.002
+          }
+        ]
+      },
+      "network": [
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "method": "POST",
+          "timestamp": 907579.112971,
+          "requestId": "3125.20"
+        },
+        {
+          "type": "httpResponse",
+          "status": 202,
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "requestId": "3125.20",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "method": "GET",
+          "timestamp": 907579.630044,
+          "requestId": "3125.21"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "requestId": "3125.21",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "method": "GET",
+          "timestamp": 907580.129618,
+          "requestId": "3125.22"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "requestId": "3125.22",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "method": "GET",
+          "timestamp": 907580.629961,
+          "requestId": "3125.23"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "requestId": "3125.23",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "method": "GET",
+          "timestamp": 907581.129372,
+          "requestId": "3125.24"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "requestId": "3125.24",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "method": "GET",
+          "timestamp": 907581.629806,
+          "requestId": "3125.25"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "requestId": "3125.25",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "method": "GET",
+          "timestamp": 907582.130104,
+          "requestId": "3125.26"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "requestId": "3125.26",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "method": "GET",
+          "timestamp": 907582.630163,
+          "requestId": "3125.27"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "requestId": "3125.27",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "method": "GET",
+          "timestamp": 907583.130223,
+          "requestId": "3125.28"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "requestId": "3125.28",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "method": "GET",
+          "timestamp": 907583.629622,
+          "requestId": "3125.29"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "requestId": "3125.29",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "method": "GET",
+          "timestamp": 907584.12985,
+          "requestId": "3125.30"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "requestId": "3125.30",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "method": "GET",
+          "timestamp": 907584.629191,
+          "requestId": "3125.31"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/22cdc707-eb2e-4f0f-ac45-11f88c7ca30a",
+          "requestId": "3125.31",
+          "contentEncoding": null
+        }
+      ]
+    },
+    {
+      "mode": "websocket",
+      "delayMs": 5000,
+      "durationMs": 5090.9,
+      "httpRequests": 2,
+      "pollRequests": 0,
+      "jsonBytes": 1842,
+      "wsMessages": 1,
+      "state": "SUCCEEDED",
+      "result": {
+        "id": "9e2e9d05-bdfc-4710-8cf7-aba7babc8e23",
+        "state": "SUCCEEDED",
+        "date": "2024-03-05",
+        "startedAt": "2026-11-25T05:30:43.606318Z",
+        "completedAt": "2026-11-25T05:30:48.691950Z",
+        "rates": [
+          {
+            "date": "2024-03-05",
+            "currency": "USD",
+            "name": "Доллар США",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 91.3534,
+            "previousRate": 91.3336,
+            "change": 0.0198,
+            "changePercent": 0.021679,
+            "fetchedAt": "2026-11-25T05:30:48.687171Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "EUR",
+            "name": "Евро",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 99.1061,
+            "previousRate": 98.7225,
+            "change": 0.3836,
+            "changePercent": 0.388564,
+            "fetchedAt": "2026-11-25T05:30:48.687179Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "CNY",
+            "name": "Юань",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 12.6478,
+            "previousRate": 12.6316,
+            "change": 0.0162,
+            "changePercent": 0.12825,
+            "fetchedAt": "2026-11-25T05:30:48.687183Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "GBP",
+            "name": "Фунт стерлингов",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 115.5803,
+            "previousRate": 115.537,
+            "change": 0.0433,
+            "changePercent": 0.037477,
+            "fetchedAt": "2026-11-25T05:30:48.687186Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "JPY",
+            "name": "Иен",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 0.608941,
+            "previousRate": 0.607271,
+            "change": 0.00167,
+            "changePercent": 0.275001,
+            "fetchedAt": "2026-11-25T05:30:48.687189Z"
+          }
+        ],
+        "error": null
+      },
+      "error": null,
+      "wire": {
+        "uploadBytes": 1304,
+        "downloadBytes": 2217,
+        "totalBytes": 3521,
+        "events": [
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 728,
+            "offsetMs": 26.218
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 418,
+            "offsetMs": 29.227
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 29.31
+          },
+          {
+            "connection": 6,
+            "direction": "upload",
+            "bytes": 568,
+            "offsetMs": 41.866
+          },
+          {
+            "connection": 6,
+            "direction": "download",
+            "bytes": 147,
+            "offsetMs": 43.505
+          },
+          {
+            "connection": 6,
+            "direction": "download",
+            "bytes": 1647,
+            "offsetMs": 5115.013
+          },
+          {
+            "connection": 6,
+            "direction": "upload",
+            "bytes": 8,
+            "offsetMs": 5115.306
+          }
+        ]
+      },
+      "network": [
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "method": "POST",
+          "timestamp": 907584.847351,
+          "requestId": "3125.32"
+        },
+        {
+          "type": "httpResponse",
+          "status": 202,
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "requestId": "3125.32",
+          "contentEncoding": null
+        },
+        {
+          "type": "wsHandshake",
+          "timestamp": 907584.863458
+        },
+        {
+          "type": "wsUpgrade",
+          "status": 101,
+          "headers": {
+            "Upgrade": "websocket",
+            "Date": "Wed, 25 Nov 2026 05:30:43 GMT",
+            "Sec-WebSocket-Accept": "c0h6c88eFJBIPsFxKpRHyEBpLJY=",
+            "Connection": "upgrade"
+          }
+        },
+        {
+          "type": "wsFrame",
+          "opcode": 1,
+          "bytes": 1639,
+          "timestamp": 907589.937635
+        }
+      ]
+    },
+    {
+      "mode": "websocket",
+      "delayMs": 5000,
+      "durationMs": 5078,
+      "httpRequests": 2,
+      "pollRequests": 0,
+      "jsonBytes": 1842,
+      "wsMessages": 1,
+      "state": "SUCCEEDED",
+      "result": {
+        "id": "e5f28fd2-fe46-4541-bf4b-23bbd7ee5e38",
+        "state": "SUCCEEDED",
+        "date": "2024-03-05",
+        "startedAt": "2026-11-25T05:30:48.903877Z",
+        "completedAt": "2026-11-25T05:30:53.977603Z",
+        "rates": [
+          {
+            "date": "2024-03-05",
+            "currency": "USD",
+            "name": "Доллар США",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 91.3534,
+            "previousRate": 91.3336,
+            "change": 0.0198,
+            "changePercent": 0.021679,
+            "fetchedAt": "2026-11-25T05:30:53.972769Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "EUR",
+            "name": "Евро",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 99.1061,
+            "previousRate": 98.7225,
+            "change": 0.3836,
+            "changePercent": 0.388564,
+            "fetchedAt": "2026-11-25T05:30:53.972776Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "CNY",
+            "name": "Юань",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 12.6478,
+            "previousRate": 12.6316,
+            "change": 0.0162,
+            "changePercent": 0.12825,
+            "fetchedAt": "2026-11-25T05:30:53.972779Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "GBP",
+            "name": "Фунт стерлингов",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 115.5803,
+            "previousRate": 115.537,
+            "change": 0.0433,
+            "changePercent": 0.037477,
+            "fetchedAt": "2026-11-25T05:30:53.972781Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "JPY",
+            "name": "Иен",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 0.608941,
+            "previousRate": 0.607271,
+            "change": 0.00167,
+            "changePercent": 0.275001,
+            "fetchedAt": "2026-11-25T05:30:53.972784Z"
+          }
+        ],
+        "error": null
+      },
+      "error": null,
+      "wire": {
+        "uploadBytes": 1304,
+        "downloadBytes": 2217,
+        "totalBytes": 3521,
+        "events": [
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 728,
+            "offsetMs": 22.559
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 418,
+            "offsetMs": 24.84
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 24.951
+          },
+          {
+            "connection": 7,
+            "direction": "upload",
+            "bytes": 568,
+            "offsetMs": 38.916
+          },
+          {
+            "connection": 7,
+            "direction": "download",
+            "bytes": 147,
+            "offsetMs": 40.447
+          },
+          {
+            "connection": 7,
+            "direction": "download",
+            "bytes": 1647,
+            "offsetMs": 5098.723
+          },
+          {
+            "connection": 7,
+            "direction": "upload",
+            "bytes": 8,
+            "offsetMs": 5099.126
+          }
+        ]
+      },
+      "network": [
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "method": "POST",
+          "timestamp": 907590.145871,
+          "requestId": "3125.34"
+        },
+        {
+          "type": "httpResponse",
+          "status": 202,
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "requestId": "3125.34",
+          "contentEncoding": null
+        },
+        {
+          "type": "wsHandshake",
+          "timestamp": 907590.161929
+        },
+        {
+          "type": "wsUpgrade",
+          "status": 101,
+          "headers": {
+            "Upgrade": "websocket",
+            "Date": "Wed, 25 Nov 2026 05:30:48 GMT",
+            "Sec-WebSocket-Accept": "SKCIKuP2+BRwxkRTpebEH2TR66Q=",
+            "Connection": "upgrade"
+          }
+        },
+        {
+          "type": "wsFrame",
+          "opcode": 1,
+          "bytes": 1639,
+          "timestamp": 907595.223273
+        }
+      ]
+    },
+    {
+      "mode": "polling",
+      "delayMs": 5000,
+      "durationMs": 5519.5,
+      "httpRequests": 12,
+      "pollRequests": 11,
+      "jsonBytes": 3522,
+      "wsMessages": 0,
+      "state": "SUCCEEDED",
+      "result": {
+        "id": "77afa741-c0f8-40c8-a987-863d6165e6f7",
+        "state": "SUCCEEDED",
+        "date": "2024-03-05",
+        "startedAt": "2026-11-25T05:30:54.189137Z",
+        "completedAt": "2026-11-25T05:30:59.268133Z",
+        "rates": [
+          {
+            "date": "2024-03-05",
+            "currency": "USD",
+            "name": "Доллар США",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 91.3534,
+            "previousRate": 91.3336,
+            "change": 0.0198,
+            "changePercent": 0.021679,
+            "fetchedAt": "2026-11-25T05:30:59.264373Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "EUR",
+            "name": "Евро",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 99.1061,
+            "previousRate": 98.7225,
+            "change": 0.3836,
+            "changePercent": 0.388564,
+            "fetchedAt": "2026-11-25T05:30:59.264383Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "CNY",
+            "name": "Юань",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 12.6478,
+            "previousRate": 12.6316,
+            "change": 0.0162,
+            "changePercent": 0.12825,
+            "fetchedAt": "2026-11-25T05:30:59.264411Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "GBP",
+            "name": "Фунт стерлингов",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 115.5803,
+            "previousRate": 115.537,
+            "change": 0.0433,
+            "changePercent": 0.037477,
+            "fetchedAt": "2026-11-25T05:30:59.264422Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "JPY",
+            "name": "Иен",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 0.608941,
+            "previousRate": 0.607271,
+            "change": 0.00167,
+            "changePercent": 0.275001,
+            "fetchedAt": "2026-11-25T05:30:59.264425Z"
+          }
+        ],
+        "error": null
+      },
+      "error": null,
+      "wire": {
+        "uploadBytes": 7812,
+        "downloadBytes": 5921,
+        "totalBytes": 13733,
+        "events": [
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 728,
+            "offsetMs": 32.942
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 418,
+            "offsetMs": 35.095
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 35.18
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 547.144
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 550.558
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 550.659
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 1047.107
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 1050.176
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 1050.859
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 1546.265
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 1549.292
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 1549.448
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 2047.371
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 2051.289
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 2051.479
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 2547.667
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 2551.322
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 2551.426
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 3046.323
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 3049.808
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 3049.925
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 3547.021
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 3550.285
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 3550.893
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 4047.367
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 4050.657
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 4050.803
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 4547.197
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 4550.342
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 4550.532
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 5046.987
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 5049.996
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 5050.094
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 5546.868
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 1833,
+            "offsetMs": 5549.899
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 5550.297
+          }
+        ]
+      },
+      "network": [
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "method": "POST",
+          "timestamp": 907595.431461,
+          "requestId": "3125.36"
+        },
+        {
+          "type": "httpResponse",
+          "status": 202,
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "requestId": "3125.36",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "method": "GET",
+          "timestamp": 907595.944888,
+          "requestId": "3125.37"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "requestId": "3125.37",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "method": "GET",
+          "timestamp": 907596.444885,
+          "requestId": "3125.38"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "requestId": "3125.38",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "method": "GET",
+          "timestamp": 907596.943844,
+          "requestId": "3125.39"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "requestId": "3125.39",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "method": "GET",
+          "timestamp": 907597.444693,
+          "requestId": "3125.40"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "requestId": "3125.40",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "method": "GET",
+          "timestamp": 907597.94498,
+          "requestId": "3125.41"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "requestId": "3125.41",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "method": "GET",
+          "timestamp": 907598.444078,
+          "requestId": "3125.42"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "requestId": "3125.42",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "method": "GET",
+          "timestamp": 907598.944726,
+          "requestId": "3125.43"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "requestId": "3125.43",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "method": "GET",
+          "timestamp": 907599.444762,
+          "requestId": "3125.44"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "requestId": "3125.44",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "method": "GET",
+          "timestamp": 907599.944761,
+          "requestId": "3125.45"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "requestId": "3125.45",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "method": "GET",
+          "timestamp": 907600.444758,
+          "requestId": "3125.46"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "requestId": "3125.46",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "method": "GET",
+          "timestamp": 907600.94461,
+          "requestId": "3125.47"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/77afa741-c0f8-40c8-a987-863d6165e6f7",
+          "requestId": "3125.47",
+          "contentEncoding": null
+        }
+      ]
+    },
+    {
+      "mode": "polling",
+      "delayMs": 5000,
+      "durationMs": 5521.8,
+      "httpRequests": 12,
+      "pollRequests": 11,
+      "jsonBytes": 3522,
+      "wsMessages": 0,
+      "state": "SUCCEEDED",
+      "result": {
+        "id": "17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+        "state": "SUCCEEDED",
+        "date": "2024-03-05",
+        "startedAt": "2026-11-25T05:30:59.941203Z",
+        "completedAt": "2026-11-25T05:31:05.019919Z",
+        "rates": [
+          {
+            "date": "2024-03-05",
+            "currency": "USD",
+            "name": "Доллар США",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 91.3534,
+            "previousRate": 91.3336,
+            "change": 0.0198,
+            "changePercent": 0.021679,
+            "fetchedAt": "2026-11-25T05:31:05.016021Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "EUR",
+            "name": "Евро",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 99.1061,
+            "previousRate": 98.7225,
+            "change": 0.3836,
+            "changePercent": 0.388564,
+            "fetchedAt": "2026-11-25T05:31:05.016030Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "CNY",
+            "name": "Юань",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 12.6478,
+            "previousRate": 12.6316,
+            "change": 0.0162,
+            "changePercent": 0.12825,
+            "fetchedAt": "2026-11-25T05:31:05.016033Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "GBP",
+            "name": "Фунт стерлингов",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 115.5803,
+            "previousRate": 115.537,
+            "change": 0.0433,
+            "changePercent": 0.037477,
+            "fetchedAt": "2026-11-25T05:31:05.016040Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "JPY",
+            "name": "Иен",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 0.608941,
+            "previousRate": 0.607271,
+            "change": 0.00167,
+            "changePercent": 0.275001,
+            "fetchedAt": "2026-11-25T05:31:05.016043Z"
+          }
+        ],
+        "error": null
+      },
+      "error": null,
+      "wire": {
+        "uploadBytes": 7812,
+        "downloadBytes": 5921,
+        "totalBytes": 13733,
+        "events": [
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 728,
+            "offsetMs": 40.406
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 418,
+            "offsetMs": 44.67
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 44.807
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 555.448
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 558.842
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 559.167
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 1054.546
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 1057.589
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 1057.681
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 1555.338
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 1558.502
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 1559.046
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 2055.482
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 2058.685
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 2058.833
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 2555.27
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 2558.486
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 2558.698
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 3053.37
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 3054.527
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 3054.631
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 3554.812
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 3557.982
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 3558.067
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 4054.512
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 4057.417
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 4057.626
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 4555.237
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 4559.32
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 4559.495
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 5055.105
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 361,
+            "offsetMs": 5057.804
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 5058.013
+          },
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 644,
+            "offsetMs": 5555.354
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 1833,
+            "offsetMs": 5558.882
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 5559.047
+          }
+        ]
+      },
+      "network": [
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "method": "POST",
+          "timestamp": 907601.181299,
+          "requestId": "3125.48"
+        },
+        {
+          "type": "httpResponse",
+          "status": 202,
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "requestId": "3125.48",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "method": "GET",
+          "timestamp": 907601.695774,
+          "requestId": "3125.49"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "requestId": "3125.49",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "method": "GET",
+          "timestamp": 907602.195379,
+          "requestId": "3125.50"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "requestId": "3125.50",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "method": "GET",
+          "timestamp": 907602.696103,
+          "requestId": "3125.51"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "requestId": "3125.51",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "method": "GET",
+          "timestamp": 907603.195987,
+          "requestId": "3125.52"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "requestId": "3125.52",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "method": "GET",
+          "timestamp": 907603.695675,
+          "requestId": "3125.53"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "requestId": "3125.53",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "method": "GET",
+          "timestamp": 907604.195043,
+          "requestId": "3125.54"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "requestId": "3125.54",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "method": "GET",
+          "timestamp": 907604.695584,
+          "requestId": "3125.55"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "requestId": "3125.55",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "method": "GET",
+          "timestamp": 907605.195368,
+          "requestId": "3125.56"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "requestId": "3125.56",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "method": "GET",
+          "timestamp": 907605.695603,
+          "requestId": "3125.57"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "requestId": "3125.57",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "method": "GET",
+          "timestamp": 907606.195795,
+          "requestId": "3125.58"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "requestId": "3125.58",
+          "contentEncoding": null
+        },
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "method": "GET",
+          "timestamp": 907606.695752,
+          "requestId": "3125.59"
+        },
+        {
+          "type": "httpResponse",
+          "status": 200,
+          "url": "http://127.0.0.1:18085/api/jobs/17d82096-3231-41cd-aff3-fa8cf73dd8a2",
+          "requestId": "3125.59",
+          "contentEncoding": null
+        }
+      ]
+    },
+    {
+      "mode": "websocket",
+      "delayMs": 5000,
+      "durationMs": 5085.4,
+      "httpRequests": 2,
+      "pollRequests": 0,
+      "jsonBytes": 1842,
+      "wsMessages": 1,
+      "state": "SUCCEEDED",
+      "result": {
+        "id": "2a7729bc-16e9-42a6-bd4b-e462a1239deb",
+        "state": "SUCCEEDED",
+        "date": "2024-03-05",
+        "startedAt": "2026-11-25T05:31:05.690749Z",
+        "completedAt": "2026-11-25T05:31:10.770344Z",
+        "rates": [
+          {
+            "date": "2024-03-05",
+            "currency": "USD",
+            "name": "Доллар США",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 91.3534,
+            "previousRate": 91.3336,
+            "change": 0.0198,
+            "changePercent": 0.021679,
+            "fetchedAt": "2026-11-25T05:31:10.765599Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "EUR",
+            "name": "Евро",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 99.1061,
+            "previousRate": 98.7225,
+            "change": 0.3836,
+            "changePercent": 0.388564,
+            "fetchedAt": "2026-11-25T05:31:10.765607Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "CNY",
+            "name": "Юань",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 12.6478,
+            "previousRate": 12.6316,
+            "change": 0.0162,
+            "changePercent": 0.12825,
+            "fetchedAt": "2026-11-25T05:31:10.765610Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "GBP",
+            "name": "Фунт стерлингов",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 115.5803,
+            "previousRate": 115.537,
+            "change": 0.0433,
+            "changePercent": 0.037477,
+            "fetchedAt": "2026-11-25T05:31:10.765613Z"
+          },
+          {
+            "date": "2024-03-05",
+            "currency": "JPY",
+            "name": "Иен",
+            "baseCurrency": "RUB",
+            "effectiveDate": "2024-03-05",
+            "previousEffectiveDate": "2024-03-02",
+            "rate": 0.608941,
+            "previousRate": 0.607271,
+            "change": 0.00167,
+            "changePercent": 0.275001,
+            "fetchedAt": "2026-11-25T05:31:10.765616Z"
+          }
+        ],
+        "error": null
+      },
+      "error": null,
+      "wire": {
+        "uploadBytes": 1304,
+        "downloadBytes": 2217,
+        "totalBytes": 3521,
+        "events": [
+          {
+            "connection": 1,
+            "direction": "upload",
+            "bytes": 728,
+            "offsetMs": 42.157
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 418,
+            "offsetMs": 45.497
+          },
+          {
+            "connection": 1,
+            "direction": "download",
+            "bytes": 5,
+            "offsetMs": 45.569
+          },
+          {
+            "connection": 8,
+            "direction": "upload",
+            "bytes": 568,
+            "offsetMs": 56.188
+          },
+          {
+            "connection": 8,
+            "direction": "download",
+            "bytes": 147,
+            "offsetMs": 58.154
+          },
+          {
+            "connection": 8,
+            "direction": "download",
+            "bytes": 1647,
+            "offsetMs": 5125.102
+          },
+          {
+            "connection": 8,
+            "direction": "upload",
+            "bytes": 8,
+            "offsetMs": 5125.516
+          }
+        ]
+      },
+      "network": [
+        {
+          "type": "httpRequest",
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "method": "POST",
+          "timestamp": 907606.931533,
+          "requestId": "3125.60"
+        },
+        {
+          "type": "httpResponse",
+          "status": 202,
+          "url": "http://127.0.0.1:18085/api/jobs",
+          "requestId": "3125.60",
+          "contentEncoding": null
+        },
+        {
+          "type": "wsHandshake",
+          "timestamp": 907606.945628
+        },
+        {
+          "type": "wsUpgrade",
+          "status": 101,
+          "headers": {
+            "Upgrade": "websocket",
+            "Date": "Wed, 25 Nov 2026 05:31:05 GMT",
+            "Sec-WebSocket-Accept": "PpbBVYQ1f58ssAXUVjtV3tpCoOA=",
+            "Connection": "upgrade"
+          }
+        },
+        {
+          "type": "wsFrame",
+          "opcode": 1,
+          "bytes": 1639,
+          "timestamp": 907612.016115
+        }
+      ]
+    }
+  ]
+}

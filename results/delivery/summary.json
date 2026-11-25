@@ -1,0 +1,74 @@
+[
+  {
+    "mode": "polling",
+    "delayMs": 0,
+    "runs": 3,
+    "durationMedianMs": 521.8,
+    "durationMinMs": 519.5,
+    "durationMaxMs": 523.9,
+    "httpRequests": [
+      2
+    ],
+    "pollRequests": [
+      1
+    ],
+    "jsonBytesMedian": 1839,
+    "wireUploadMedian": 1369,
+    "wireDownloadMedian": 2261,
+    "wireTotalMedian": 3630
+  },
+  {
+    "mode": "websocket",
+    "delayMs": 0,
+    "runs": 3,
+    "durationMedianMs": 72.5,
+    "durationMinMs": 48.2,
+    "durationMaxMs": 141.7,
+    "httpRequests": [
+      2
+    ],
+    "pollRequests": [
+      0
+    ],
+    "jsonBytesMedian": 1839,
+    "wireUploadMedian": 1301,
+    "wireDownloadMedian": 2217,
+    "wireTotalMedian": 3518
+  },
+  {
+    "mode": "polling",
+    "delayMs": 5000,
+    "runs": 3,
+    "durationMedianMs": 5520.2,
+    "durationMinMs": 5519.5,
+    "durationMaxMs": 5521.8,
+    "httpRequests": [
+      12
+    ],
+    "pollRequests": [
+      11
+    ],
+    "jsonBytesMedian": 3522,
+    "wireUploadMedian": 7812,
+    "wireDownloadMedian": 5921,
+    "wireTotalMedian": 13733
+  },
+  {
+    "mode": "websocket",
+    "delayMs": 5000,
+    "runs": 3,
+    "durationMedianMs": 5085.4,
+    "durationMinMs": 5078,
+    "durationMaxMs": 5090.9,
+    "httpRequests": [
+      2
+    ],
+    "pollRequests": [
+      0
+    ],
+    "jsonBytesMedian": 1842,
+    "wireUploadMedian": 1304,
+    "wireDownloadMedian": 2217,
+    "wireTotalMedian": 3521
+  }
+]
