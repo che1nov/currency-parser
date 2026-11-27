@@ -7,3 +7,5 @@ __pycache__/
 /currency-parser.jar
 /.local-tools/
 /results/delivery/*.log
+
+/results/cache/*.log

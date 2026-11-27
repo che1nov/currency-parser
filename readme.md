@@ -8,6 +8,8 @@ Spring Boot MVC приложение на Java 17. Получает официа
 
 [Отчёт по теме 5: REST polling и WebSocket](report/rest-vs-websocket.md).
 
+[Отчёт по теме 6: Caffeine и Redis](report/caching.md).
+
 ## Запуск для преподавателя
 
 Нужна **Java 17 или новее**, свободный порт **8080** и доступ к `https://www.cbr.ru`. Установка БД, регистрация, ключи API и изменение конфигурации не требуются.
@@ -26,7 +28,7 @@ java -jar currency-parser.jar
 
 ```sh
 mvn clean verify
-java -jar target/currency-parser-1.2.0.jar
+java -jar target/currency-parser-1.3.0.jar
 ```
 
 Через секунду после запуска начинается автоматический сбор за сегодня, затем он повторяется через час после завершения предыдущего запуска. Дата «сегодня» определяется по `Europe/Moscow`. Сбор обычно занимает несколько секунд; предельное ожидание сетевых задач — 15 секунд. Для остановки нажмите Ctrl+C.
@@ -75,6 +77,77 @@ python3 scripts/analyze_delivery.py
 Либо передайте установленный Chromium-браузер через `--browser /полный/путь/к/браузеру`. Измерительный скрипт сам запускает и останавливает отдельный экземпляр на порту 18084, TCP-реле на 18085 и его локальный управляющий порт 18086. Используются временные H2 и файлы; основная БД не затрагивается. Нужны свободные порты и доступ к ЦБ.
 
 Скрипт делает два прогрева и по три измерения каждой комбинации. Счётчики интерфейса сверяются с событиями DevTools через CDP. Полный объём HTTP/WebSocket в обоих направлениях измеряется TCP-реле; загрузка HTML, трафик к ЦБ и заголовки TCP/IP не включены. HTTP-сжатие и WebSocket permessage-deflate отключены. На странице показан отдельно только объём JSON без заголовков. Исходные измерения и проверка браузера сохраняются в [results/delivery](results/delivery), скриншот — в [report/images](report/images).
+
+## Caffeine и Redis — тема 6
+
+Обычный запуск уже использует Caffeine: `spring.cache.type=caffeine`, максимум 1000 записей, TTL 10 минут. Кэшируется `/answer` с учётом всех фильтров и сортировки. Для Redis достаточно `--spring.cache.type=redis`; адрес задаётся через `spring.data.redis.host` и `spring.data.redis.port`, TTL — `spring.cache.redis.time-to-live`. Код сервисов для этих двух вариантов одинаковый.
+
+### Автоматическая проверка
+
+Нужны Java 17+, Maven, Python 3.9+, curl и запущенный Docker Desktop. Из папки проекта выполните:
+
+```sh
+mvn verify
+python3 scripts/measure_cache.py
+```
+
+Скрипт соберёт Docker-образ, запустит Redis, общую H2 и два контейнера приложения на `http://localhost:18091` и `http://localhost:18092`. Проверит оба кэша, 20 пар «промах/попадание» после прогрева, инвалидацию и истечение TTL. В конце он удалит только созданные им контейнеры и сеть; основной `data/` не затрагивается. Порты должны быть свободны, для загрузки образов и получения курсов нужен интернет.
+
+### Ручная проверка двух экземпляров
+
+Сначала соберите проект и образ:
+
+```sh
+mvn verify
+docker compose -p currency-cache-demo -f compose.cache.yml build app-a
+docker compose -p currency-cache-demo -f compose.cache.yml up -d --no-build
+```
+
+По умолчанию стенд использует Caffeine. После запуска выполните:
+
+```sh
+curl -X POST http://localhost:18091/api/collect \
+  -H 'Content-Type: application/json' -d '{"date":"2024-03-05"}'
+
+curl -s -w '\nВремя: %{time_total} с\n' \
+  'http://localhost:18091/answer?date=2024-03-05&currency=USD'
+# Повторите тот же запрос, затем выполните его на втором экземпляре:
+curl -s -w '\nВремя: %{time_total} с\n' \
+  'http://localhost:18092/answer?date=2024-03-05&currency=USD'
+
+curl http://localhost:18091/api/lab/cache
+curl http://localhost:18092/api/lab/cache
+```
+
+`databaseReads` — число реальных вызовов чтения курсов в репозитории с запуска конкретного экземпляра. В Caffeine после первого запроса на каждом экземпляре счётчик равен 1, повторные обращения его не увеличивают. Для очистки перед повторением опыта:
+
+```sh
+curl -X DELETE http://localhost:18091/api/lab/cache
+curl -X DELETE http://localhost:18092/api/lab/cache
+```
+
+Чтобы переключить оба контейнера на Redis, задайте `CACHE_TYPE=redis` и повторите запуск (macOS/Linux):
+
+```sh
+CACHE_TYPE=redis docker compose -p currency-cache-demo -f compose.cache.yml up -d --no-build
+```
+
+В PowerShell сначала выполните `$env:CACHE_TYPE="redis"`, затем ту же команду без префикса `CACHE_TYPE=redis`. Повторите сбор и GET сначала на A, затем на B: у B `databaseReads` останется 0, потому что результат уже находится в Redis. Для просмотра ключей:
+
+```sh
+docker compose -p currency-cache-demo -f compose.cache.yml exec redis \
+  redis-cli --scan --pattern 'currency-parser:v1:rates::*'
+```
+
+После прогрева повторите POST сбора на A и запросите результат с обоих портов. Redis выдаст обновлённую метку `fetchedAt` на обоих экземплярах. Caffeine сбросит только кэш A; B сохранит предыдущую копию до TTL. Для нескольких экземпляров с обновляемыми данными используйте Redis, а не рассчитывайте на общий сброс локальных кэшей.
+
+Остановка учебного стенда:
+
+```sh
+docker compose -p currency-cache-demo -f compose.cache.yml down
+```
+
+H2 в этом стенде общая через TCP, поэтому эффект Redis не маскируется отдельными базами. Учебная БД живёт в контейнере и удаляется вместе с ним. Диагностические `/api/lab/cache` включены только профилем `cache-lab`; в обычном запуске их нет. `@CacheEvict` очищает весь `rates` после успешного сбора, поэтому разные варианты сортировки не остаются устаревшими. Redis-сериализация использует JSON с заданным типом, TTL 10 минут и префикс `currency-parser:v1:`; типы Java из произвольного JSON не загружаются.
 
 ## Последовательность проверки
 
@@ -304,4 +377,4 @@ java -jar currency-parser.jar --collector.scheduling-enabled=false
 java -jar currency-parser.jar --server.port=8081
 ```
 
-В исходном проекте замените `currency-parser.jar` на `target/currency-parser-1.2.0.jar`.
+В исходном проекте замените `currency-parser.jar` на `target/currency-parser-1.3.0.jar`.

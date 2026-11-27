@@ -1,0 +1,564 @@
+{
+  "project": "rates-cache-9e59467627",
+  "date": "2024-03-05",
+  "query": "/answer?date=2024-03-05&currency=USD&sort=rate&direction=asc",
+  "phases": [
+    {
+      "backend": "caffeine",
+      "instances": {
+        "A": {
+          "instance": "A",
+          "databaseReads": 0,
+          "cacheManager": "CaffeineCacheManager"
+        },
+        "B": {
+          "databaseReads": 0,
+          "cacheManager": "CaffeineCacheManager",
+          "instance": "B"
+        }
+      },
+      "pairs": [
+        {
+          "missMs": 2.435,
+          "hitMs": 2.116,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.81,
+          "hitMs": 1.918,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.848,
+          "hitMs": 2.147,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.611,
+          "hitMs": 1.733,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.777,
+          "hitMs": 1.882,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.742,
+          "hitMs": 1.683,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.28,
+          "hitMs": 2.033,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.544,
+          "hitMs": 1.932,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.685,
+          "hitMs": 2.015,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.796,
+          "hitMs": 2.093,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.604,
+          "hitMs": 1.742,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.073,
+          "hitMs": 1.914,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.695,
+          "hitMs": 1.836,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.615,
+          "hitMs": 1.768,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.473,
+          "hitMs": 1.685,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.811,
+          "hitMs": 1.934,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.809,
+          "hitMs": 1.77,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.823,
+          "hitMs": 2.212,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.505,
+          "hitMs": 1.877,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 2.334,
+          "hitMs": 1.908,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        }
+      ],
+      "twoInstances": {
+        "before": {
+          "A": 15,
+          "B": 15
+        },
+        "after": {
+          "A": 16,
+          "B": 16
+        },
+        "databaseReadsDelta": {
+          "A": 1,
+          "B": 1
+        },
+        "calls": [
+          {
+            "instance": "A",
+            "milliseconds": 3.183,
+            "rates": [
+              {
+                "date": "2024-03-05",
+                "currency": "USD",
+                "name": "Доллар США",
+                "baseCurrency": "RUB",
+                "effectiveDate": "2024-03-05",
+                "previousEffectiveDate": "2024-03-02",
+                "rate": 91.3534,
+                "previousRate": 91.3336,
+                "change": 0.0198,
+                "changePercent": 0.021679,
+                "fetchedAt": "2026-11-27T06:13:41.948485Z"
+              }
+            ]
+          },
+          {
+            "instance": "A",
+            "milliseconds": 2.327,
+            "rates": [
+              {
+                "date": "2024-03-05",
+                "currency": "USD",
+                "name": "Доллар США",
+                "baseCurrency": "RUB",
+                "effectiveDate": "2024-03-05",
+                "previousEffectiveDate": "2024-03-02",
+                "rate": 91.3534,
+                "previousRate": 91.3336,
+                "change": 0.0198,
+                "changePercent": 0.021679,
+                "fetchedAt": "2026-11-27T06:13:41.948485Z"
+              }
+            ]
+          },
+          {
+            "instance": "B",
+            "milliseconds": 3.678,
+            "rates": [
+              {
+                "date": "2024-03-05",
+                "currency": "USD",
+                "name": "Доллар США",
+                "baseCurrency": "RUB",
+                "effectiveDate": "2024-03-05",
+                "previousEffectiveDate": "2024-03-02",
+                "rate": 91.3534,
+                "previousRate": 91.3336,
+                "change": 0.0198,
+                "changePercent": 0.021679,
+                "fetchedAt": "2026-11-27T06:13:41.948485Z"
+              }
+            ]
+          },
+          {
+            "instance": "B",
+            "milliseconds": 1.95,
+            "rates": [
+              {
+                "date": "2024-03-05",
+                "currency": "USD",
+                "name": "Доллар США",
+                "baseCurrency": "RUB",
+                "effectiveDate": "2024-03-05",
+                "previousEffectiveDate": "2024-03-02",
+                "rate": 91.3534,
+                "previousRate": 91.3336,
+                "change": 0.0198,
+                "changePercent": 0.021679,
+                "fetchedAt": "2026-11-27T06:13:41.948485Z"
+              }
+            ]
+          }
+        ]
+      },
+      "invalidation": {
+        "databaseReadsDelta": {
+          "A": 2,
+          "B": 0
+        },
+        "fetchedAtBefore": {
+          "A": "2026-11-27T06:13:41.948485Z",
+          "B": "2026-11-27T06:13:41.948485Z"
+        },
+        "fetchedAtAfter": {
+          "A": "2026-11-27T06:13:43.386691Z",
+          "B": "2026-11-27T06:13:41.948485Z"
+        },
+        "instanceAUpdated": true,
+        "instanceBUpdated": false,
+        "allQueryVariantsChecked": true
+      },
+      "summary": {
+        "miss": {
+          "medianMs": 2.69,
+          "minMs": 2.28,
+          "maxMs": 3.073
+        },
+        "hit": {
+          "medianMs": 1.911,
+          "minMs": 1.683,
+          "maxMs": 2.212
+        }
+      },
+      "ttlCheck": {
+        "configuredSeconds": 2,
+        "sleepSeconds": 2.2,
+        "readsBeforeExpiry": 1,
+        "readsAfterExpiry": 1,
+        "otherInstanceRefreshedAfterExpiry": true
+      }
+    },
+    {
+      "backend": "redis",
+      "instances": {
+        "A": {
+          "cacheManager": "RedisCacheManager",
+          "databaseReads": 0,
+          "instance": "A"
+        },
+        "B": {
+          "instance": "B",
+          "cacheManager": "RedisCacheManager",
+          "databaseReads": 0
+        }
+      },
+      "pairs": [
+        {
+          "missMs": 3.283,
+          "hitMs": 2.701,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.668,
+          "hitMs": 2.497,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.219,
+          "hitMs": 2.39,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.318,
+          "hitMs": 2.252,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.363,
+          "hitMs": 2.401,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.401,
+          "hitMs": 2.271,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.096,
+          "hitMs": 2.541,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.334,
+          "hitMs": 2.372,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.245,
+          "hitMs": 2.417,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.225,
+          "hitMs": 2.537,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 4.901,
+          "hitMs": 2.859,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.309,
+          "hitMs": 2.434,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 4.082,
+          "hitMs": 2.697,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.437,
+          "hitMs": 2.295,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.162,
+          "hitMs": 2.352,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.852,
+          "hitMs": 2.584,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.435,
+          "hitMs": 2.5,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.165,
+          "hitMs": 2.299,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.279,
+          "hitMs": 2.317,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        },
+        {
+          "missMs": 3.125,
+          "hitMs": 2.39,
+          "missDbReads": 1,
+          "hitDbReads": 0
+        }
+      ],
+      "twoInstances": {
+        "before": {
+          "A": 15,
+          "B": 0
+        },
+        "after": {
+          "A": 16,
+          "B": 0
+        },
+        "databaseReadsDelta": {
+          "A": 1,
+          "B": 0
+        },
+        "calls": [
+          {
+            "instance": "A",
+            "milliseconds": 3.697,
+            "rates": [
+              {
+                "date": "2024-03-05",
+                "currency": "USD",
+                "name": "Доллар США",
+                "baseCurrency": "RUB",
+                "effectiveDate": "2024-03-05",
+                "previousEffectiveDate": "2024-03-02",
+                "rate": 91.3534,
+                "previousRate": 91.3336,
+                "change": 0.0198,
+                "changePercent": 0.021679,
+                "fetchedAt": "2026-11-27T06:13:59.803247Z"
+              }
+            ]
+          },
+          {
+            "instance": "A",
+            "milliseconds": 2.992,
+            "rates": [
+              {
+                "date": "2024-03-05",
+                "currency": "USD",
+                "name": "Доллар США",
+                "baseCurrency": "RUB",
+                "effectiveDate": "2024-03-05",
+                "previousEffectiveDate": "2024-03-02",
+                "rate": 91.3534,
+                "previousRate": 91.3336,
+                "change": 0.0198,
+                "changePercent": 0.021679,
+                "fetchedAt": "2026-11-27T06:13:59.803247Z"
+              }
+            ]
+          },
+          {
+            "instance": "B",
+            "milliseconds": 3.589,
+            "rates": [
+              {
+                "date": "2024-03-05",
+                "currency": "USD",
+                "name": "Доллар США",
+                "baseCurrency": "RUB",
+                "effectiveDate": "2024-03-05",
+                "previousEffectiveDate": "2024-03-02",
+                "rate": 91.3534,
+                "previousRate": 91.3336,
+                "change": 0.0198,
+                "changePercent": 0.021679,
+                "fetchedAt": "2026-11-27T06:13:59.803247Z"
+              }
+            ]
+          },
+          {
+            "instance": "B",
+            "milliseconds": 2.522,
+            "rates": [
+              {
+                "date": "2024-03-05",
+                "currency": "USD",
+                "name": "Доллар США",
+                "baseCurrency": "RUB",
+                "effectiveDate": "2024-03-05",
+                "previousEffectiveDate": "2024-03-02",
+                "rate": 91.3534,
+                "previousRate": 91.3336,
+                "change": 0.0198,
+                "changePercent": 0.021679,
+                "fetchedAt": "2026-11-27T06:13:59.803247Z"
+              }
+            ]
+          }
+        ]
+      },
+      "invalidation": {
+        "databaseReadsDelta": {
+          "A": 2,
+          "B": 0
+        },
+        "fetchedAtBefore": {
+          "A": "2026-11-27T06:13:59.803247Z",
+          "B": "2026-11-27T06:13:59.803247Z"
+        },
+        "fetchedAtAfter": {
+          "A": "2026-11-27T06:14:01.765761Z",
+          "B": "2026-11-27T06:14:01.765761Z"
+        },
+        "instanceAUpdated": true,
+        "instanceBUpdated": true,
+        "allQueryVariantsChecked": true
+      },
+      "redisKeys": [
+        "currency-parser:v1:rates::2024-03-05|*|change|desc",
+        "currency-parser:v1:rates::2024-03-05|USD|rate|asc"
+      ],
+      "redisTtlMs": 599890,
+      "summary": {
+        "miss": {
+          "medianMs": 3.3135000000000003,
+          "minMs": 3.096,
+          "maxMs": 4.901
+        },
+        "hit": {
+          "medianMs": 2.409,
+          "minMs": 2.252,
+          "maxMs": 2.859
+        }
+      },
+      "ttlCheck": {
+        "configuredSeconds": 2,
+        "sleepSeconds": 2.2,
+        "readsBeforeExpiry": 1,
+        "readsAfterExpiry": 1
+      }
+    }
+  ],
+  "environment": {
+    "measuredAt": "2026-11-27T10:14:10+0400",
+    "host": "macOS-27.2.1-arm64-arm-64bit",
+    "curl": "curl 8.7.1 (x86_64-apple-darwin26.0) libcurl/8.7.1 (SecureTransport) LibreSSL/3.3.6 zlib/1.2.12 nghttp2/1.69.0",
+    "docker": "29.7.2",
+    "java": "openjdk 17.0.21 2026-10-20\nOpenJDK Runtime Environment Temurin-17.0.21+9 (build 17.0.21+9)\nOpenJDK 64-Bit Server VM Temurin-17.0.21+9 (build 17.0.21+9, mixed mode, sharing)",
+    "redis": "Redis server v=7.4.12 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=6d565d4e3893fa59",
+    "h2": "2.3.232, shared TCP server",
+    "appLimits": {
+      "cpus": 1,
+      "memoryMiB": 512,
+      "heapMiB": 256
+    },
+    "images": "[{\"ID\":\"sha256:659b926c6a424e3aa52047a8c5b7024874c5f2b5455836037f958eacb2b5e10a\",\"ContainerName\":\"rates-cache-9e59467627-h2-1\",\"Repository\":\"currency-parser-cache-lab\",\"Tag\":\"1.3.0\",\"Platform\":\"linux/arm64\",\"Size\":246854167,\"Created\":\"2026-11-27T06:08:42.201912795Z\",\"LastTagTime\":\"2026-11-27T06:13:24.502139509Z\"},{\"ID\":\"sha256:659b926c6a424e3aa52047a8c5b7024874c5f2b5455836037f958eacb2b5e10a\",\"ContainerName\":\"rates-cache-9e59467627-app-b-1\",\"Repository\":\"currency-parser-cache-lab\",\"Tag\":\"1.3.0\",\"Platform\":\"linux/arm64\",\"Size\":246854167,\"Created\":\"2026-11-27T06:08:42.201912795Z\",\"LastTagTime\":\"2026-11-27T06:13:24.502139509Z\"},{\"ID\":\"sha256:659b926c6a424e3aa52047a8c5b7024874c5f2b5455836037f958eacb2b5e10a\",\"ContainerName\":\"rates-cache-9e59467627-app-a-1\",\"Repository\":\"currency-parser-cache-lab\",\"Tag\":\"1.3.0\",\"Platform\":\"linux/arm64\",\"Size\":246854167,\"Created\":\"2026-11-27T06:08:42.201912795Z\",\"LastTagTime\":\"2026-11-27T06:13:24.502139509Z\"},{\"ID\":\"sha256:7f7d30b7fdd09467bac58198a1f166dd69789d348d4fe859cccb20e0cf287fbe\",\"ContainerName\":\"rates-cache-9e59467627-redis-1\",\"Repository\":\"redis\",\"Tag\":\"7.4-alpine\",\"Platform\":\"linux/arm64/v8\",\"Size\":16927338,\"Created\":\"2026-11-09T20:09:26.701357753Z\",\"LastTagTime\":\"2026-11-27T06:13:35.244691584Z\"}]\n\n",
+    "pairsPerBackend": 20,
+    "source": "Live CBR XML, historical date; no artificial DB delay"
+  },
+  "tests": {
+    "tests": 44,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

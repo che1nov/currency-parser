@@ -3,6 +3,7 @@ package ru.study.rates.service;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import ru.study.rates.model.Currency;
 import ru.study.rates.model.CurrencyRate;
@@ -16,6 +17,7 @@ public class RateQueryService {
         this.repository = repository;
     }
 
+    @Cacheable(cacheNames = "rates", key = "#date.toString() + '|' + (#currency == null ? '*' : #currency.name()) + '|' + #sort + '|' + #direction", sync = true)
     public List<CurrencyRate> find(LocalDate date, Currency currency, String sort, String direction) {
         Comparator<CurrencyRate> comparator = switch (sort) {
             case "currency" -> Comparator.comparing(rate -> rate.currency().name());

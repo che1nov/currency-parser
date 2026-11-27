@@ -18,6 +18,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.transaction.support.TransactionTemplate;
 import ru.study.rates.adapter.CbrClient;
 import ru.study.rates.adapter.CollectionJournal;
@@ -53,6 +54,8 @@ public class RateCollectionService {
         this.journal = journal;
     }
 
+    // Метод возвращается после commit H2. Очищаются все варианты фильтрации и сортировки.
+    @CacheEvict(cacheNames = "rates", allEntries = true)
     public List<CurrencyRate> collect(LocalDate date, String sourceUrl) {
         validateDate(date);
         client.validateSource(sourceUrl);

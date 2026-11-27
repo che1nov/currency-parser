@@ -12,7 +12,7 @@ from urllib.request import Request, urlopen
 PROJECT = Path(__file__).resolve().parents[1]
 JAR = PROJECT / "currency-parser.jar"
 if not JAR.exists():
-    JAR = PROJECT / "target/currency-parser-1.2.0.jar"
+    JAR = PROJECT / "target/currency-parser-1.3.0.jar"
 BASE = "http://127.0.0.1:18080"
 
 

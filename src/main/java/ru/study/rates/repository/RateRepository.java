@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.study.rates.model.Currency;
@@ -12,6 +13,7 @@ import ru.study.rates.model.CurrencyRate;
 @Repository
 public class RateRepository {
     private final JdbcTemplate jdbc;
+    private final AtomicLong readCount = new AtomicLong();
 
     public RateRepository(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
@@ -37,6 +39,7 @@ public class RateRepository {
     }
 
     public List<CurrencyRate> findByDate(LocalDate date) {
+        readCount.incrementAndGet();
         return jdbc.query("SELECT * FROM currency_rate WHERE requested_date = ?", (rs, row) ->
                 new CurrencyRate(rs.getObject("requested_date", LocalDate.class),
                         Currency.valueOf(rs.getString("currency")), rs.getString("name"),
@@ -46,4 +49,6 @@ public class RateRepository {
                         rs.getBigDecimal("change_amount"), rs.getBigDecimal("change_percent"),
                         rs.getObject("fetched_at", OffsetDateTime.class).toInstant()), date);
     }
+
+    public long readCount() { return readCount.get(); }
 }

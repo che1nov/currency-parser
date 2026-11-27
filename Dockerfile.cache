@@ -1,0 +1,8 @@
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+COPY target/currency-parser-1.3.0.jar app.jar
+RUN jar xf app.jar BOOT-INF/lib/h2-2.3.232.jar && \
+    mv BOOT-INF/lib/h2-2.3.232.jar /app/h2.jar && \
+    useradd --uid 10001 --create-home app
+USER 10001
+ENTRYPOINT ["java", "-Xms64m", "-Xmx256m", "-jar", "/app/app.jar"]

@@ -1,0 +1,50 @@
+x-app: &app
+  image: currency-parser-cache-lab:1.3.0
+  build:
+    context: .
+    dockerfile: Dockerfile.cache
+  cpus: 1
+  mem_limit: 512m
+  depends_on:
+    h2:
+      condition: service_started
+    redis:
+      condition: service_healthy
+  environment: &environment
+    SPRING_PROFILES_ACTIVE: cache-lab
+    SPRING_CACHE_TYPE: ${CACHE_TYPE:-caffeine}
+    SPRING_CACHE_CAFFEINE_SPEC: maximumSize=1000,expireAfterWrite=${CACHE_TTL_SECONDS:-600}s,recordStats
+    SPRING_CACHE_REDIS_TIME_TO_LIVE: ${CACHE_TTL_SECONDS:-600}s
+    SPRING_DATA_REDIS_HOST: redis
+    SPRING_DATASOURCE_URL: jdbc:h2:tcp://h2:9092/./rates
+    COLLECTOR_SCHEDULING_ENABLED: "false"
+    COLLECTOR_FILES_DIRECTORY: /tmp/rates-files
+
+services:
+  h2:
+    image: currency-parser-cache-lab:1.3.0
+    entrypoint: ["java", "-Xms32m", "-Xmx128m", "-cp", "/app/h2.jar", "org.h2.tools.Server", "-tcp", "-tcpAllowOthers", "-ifNotExists", "-baseDir", "/tmp"]
+    mem_limit: 256m
+    cpus: 1
+  redis:
+    image: redis:7.4-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no", "--maxmemory", "64mb", "--maxmemory-policy", "allkeys-lru"]
+    mem_limit: 128m
+    cpus: 1
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 1s
+      retries: 20
+  app-a:
+    <<: *app
+    ports: ["127.0.0.1:${CACHE_PORT_A:-18091}:8080"]
+    environment:
+      <<: *environment
+      LAB_INSTANCE: A
+  app-b:
+    <<: *app
+    ports: ["127.0.0.1:${CACHE_PORT_B:-18092}:8080"]
+    environment:
+      <<: *environment
+      LAB_INSTANCE: B
